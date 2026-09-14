@@ -1,0 +1,189 @@
+<!DOCTYPE html> <html lang="uk"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Про команду | Polissya Kids 16L</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head> 
+
+<body> <!-- Шапка сайту --> 
+    
+    <header> <img src="images/logo.png" alt="Логотип Polissya Kids 16L" class="header-logo"> <h1>Polissya Kids 16L</h1> 
+    <p>Футбольна команда юних чемпіонів</p> 
+    
+    <!-- Меню --> 
+  
+<nav>
+
+    <a href="index.html">Головна</a>
+
+    <a href="about.html">Про команду</a>
+
+
+    <!-- ВІКОВІ ГРУПИ -->
+    <div class="dropdown">
+
+        <button class="dropdown-button">
+            Вікові групи ▾
+        </button>
+
+        <div class="dropdown-menu">
+
+            <a href="u6.html">U-6</a>
+            <a href="u7.html">U-7</a>
+            <a href="u8.html">U-8</a>
+            <a href="u9.html">U-9</a>
+            <a href="players.html">U-10</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ТУРНІРИ -->
+    <div class="dropdown">
+
+        <button class="dropdown-button">
+            Турніри ▾
+        </button>
+
+        <div class="dropdown-menu">
+
+            <a href="tournaments.html">Поточні</a>
+            <a href="tournaments-planned.html">Майбутні</a>
+            <a href="tournaments-completed.html">Завершені</a>
+
+        </div>
+
+    </div>
+
+    <a href="gallery.html">Галерея</a>
+    <a href="contacts.html">Контакти</a>
+
+     <!-- СОЦМЕРЕЖІ -->
+        <div class="header-social-top">
+    <a href="https://www.facebook.com/polissyalitsei16" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="http://www.youtube.com/@football.zt-16" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+
+</nav>
+        </header> <!-- Основний контент --> <main> 
+            <section class="page-title next-match-modern scroll-animate animate-right"> 
+                <h2>Про нашу команду</h2>
+                 <p> Polissya Kids 16L — команда юних футболістів, які люблять футбол та прагнуть перемог. </p> 
+                </section> 
+                <!-- Фото команди --> 
+                 <section class="team-photo u-clearfix u-grey-90 u-section-3 scroll-animate animate-bottom" id="block-4""> 
+				 <img src="images/Team_berdos.jpg" alt="Футбольна команда Polissya Kids 16L - U-9">
+                 </section>
+                  <!-- Наша історія --> 
+				  <section class="scroll-animate animate-left team-intro"> 
+                    <h2>⚽ Наша історія</h2>
+                     <p> Наша команда створена для дітей, які хочуть навчатися футболу, розвиватися та отримувати задоволення від гри. </p> 
+                     <p> На тренуваннях ми працюємо над технікою, швидкістю, фізичною підготовкою та командною грою. </p>
+                     </section>
+                      <!-- Наші цінності --> 
+                       <section class="scroll-animate animate-right"> 
+					   <h2>🏆 Наші цінності</h2>
+                         <div class="values"> 
+                            <div class="value-card"> 
+                                <h3>⚽ Командна гра</h3>
+                                 <p> Вчимося грати один за одного та підтримувати партнерів. </p>
+                                 </div> <div class="value-card"> 
+                                    <h3>💪 Наполегливість</h3>
+                                     <p> Працюємо на тренуваннях, щоб ставати кращими. 
+
+                                     </p> 
+                                    </div> 
+    <div class="value-card"> 
+        <h3>🏆 Перемога</h3> 
+        <p> Прагнемо до перемог, але завжди поважаємо суперника. 
+
+        </p> 
+    </div> 
+</div> 
+</section>
+
+<!-- Наша мета --> 
+ <section class="scroll-animate animate-left team-intro"> <h2>🎯 Наша мета</h2> 
+    <p> Розвивати юних футболістів, формувати командний дух та любов до футболу. 
+
+    </p> 
+    <p> Кожне тренування — це ще один крок до нових футбольних перемог! </p> 
+</section> 
+</main> 
+
+<!-- Підвал --> 
+ <footer> 
+    <p>© 2026 Polissya Kids 16L. Сайт розробив Кузько Анатолій</p> </footer> 
+<script>
+
+function toggleDropdown() {
+
+    const dropdown =
+        document.getElementById("age-dropdown");
+
+    dropdown.classList.toggle("show");
+
+}
+
+</script>
+ <script>
+function toggleMenu() {
+    const menu = document.getElementById("main-menu");
+    menu.classList.toggle("show");
+}
+</script>
+
+<script>
+
+function toggleDropdown() {
+
+    const dropdown =
+        document.getElementById("age-dropdown");
+
+    dropdown.classList.toggle("show");
+
+}
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const animatedBlocks =
+        document.querySelectorAll(".scroll-animate");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    animatedBlocks.forEach((block) => {
+        observer.observe(block);
+    });
+
+});
+</script>
+
+</body> 
+</html>
