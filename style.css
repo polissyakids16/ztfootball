@@ -4150,3 +4150,57 @@ footer p{color:#bfe8c7;font-size:13px;}
         height: 250px;
     }
 }
+
+/* Виправлення секцій about.html на телефонах */
+@media (max-width: 768px) {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        overflow-x: clip;
+    }
+
+    main {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    main > section:not(.hero),
+    .team-photo,
+    .team-intro {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .team-intro {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .team-intro h2 {
+        font-size: clamp(24px, 7vw, 28px);
+        overflow-wrap: anywhere;
+    }
+
+    .team-intro p {
+        max-width: none;
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    /* На телефоні прибираємо сильний боковий зсув анімації */
+    .scroll-animate.animate-left,
+    .scroll-animate.animate-right {
+        transform: translate3d(0, 28px, 0) scale(0.99);
+    }
+
+    .scroll-animate.show {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
