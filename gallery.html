@@ -229,119 +229,238 @@
 
     </footer>
 
-    <script>
+<script>
 function toggleMenu() {
     const menu = document.getElementById("main-menu");
-    menu.classList.toggle("show");
-}
+
+    if (menu) {
+        menu.classList.toggle("show");
+    }
 </script>
 
-<script>
-
-function toggleDropdown() {
-
-    const dropdown =
-        document.getElementById("age-dropdown");
-
-    dropdown.classList.toggle("show");
-
-}
-
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* =========================
+       АНІМАЦІЯ БЛОКІВ ПРИ СКРОЛІ
+       ========================= */
+
     const animatedBlocks =
         document.querySelectorAll(".scroll-animate");
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+    if (animatedBlocks.length) {
 
-            entries.forEach((entry) => {
+        const observer = new IntersectionObserver(
+            (entries) => {
 
-                if (entry.isIntersecting) {
+                entries.forEach((entry) => {
 
-                    entry.target.classList.add("show");
+                    if (entry.isIntersecting) {
 
-                    observer.unobserve(entry.target);
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        animatedBlocks.forEach((block) => {
+            observer.observe(block);
+        });
+
+    }
+
+
+    /* =========================
+       ВИПАДАЮЧІ МЕНЮ
+       ========================= */
+
+    const dropdownButtons =
+        document.querySelectorAll(".dropdown-button");
+
+    const nav =
+        document.querySelector("header nav");
+
+
+    dropdownButtons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const currentDropdown =
+                button.closest(".dropdown");
+
+            if (!currentDropdown) return;
+
+            const currentMenu =
+                currentDropdown.querySelector(".dropdown-menu");
+
+            if (!currentMenu) return;
+
+
+            /* Закриваємо інші меню */
+
+            document
+                .querySelectorAll(".dropdown-menu.show")
+                .forEach(function (otherMenu) {
+
+                    if (otherMenu !== currentMenu) {
+                        otherMenu.classList.remove("show");
+                    }
+
+                });
+
+
+            /* Відкриваємо / закриваємо поточне */
+
+            const isOpening =
+                !currentMenu.classList.contains("show");
+
+            currentMenu.classList.toggle("show");
+
+
+            /* Мобільна версія */
+
+            if (nav && window.innerWidth <= 700) {
+
+                if (isOpening) {
+                    nav.classList.add("dropdown-open");
+                } else {
+                    nav.classList.remove("dropdown-open");
                 }
+
+            }
+
+        });
+
+    });
+
+
+    /* Закриття dropdown при кліку поза меню */
+
+    document.addEventListener("click", function () {
+
+        document
+            .querySelectorAll(".dropdown-menu.show")
+            .forEach(function (menu) {
+
+                menu.classList.remove("show");
 
             });
 
-        },
-        {
-            threshold: 0.15
+        if (nav) {
+            nav.classList.remove("dropdown-open");
         }
-    );
-
-
-    animatedBlocks.forEach((block) => {
-        observer.observe(block);
-    });
-
-});
-</script>
-
-<script>
-
-const galleryItems = document.querySelectorAll('.gallery-item');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.lightbox-close');
-
-
-/* Відкриваємо фото */
-
-galleryItems.forEach(item => {
-
-    item.addEventListener('click', function() {
-
-        const img = this.querySelector('img');
-
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-
-        lightbox.classList.add('active');
 
     });
 
-});
+
+    /* Клік всередині dropdown */
+
+    document
+        .querySelectorAll(".dropdown-menu")
+        .forEach(function (menu) {
+
+            menu.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+            });
+
+        });
 
 
-/* Закриваємо фото */
+    /* =========================
+       LIGHTBOX ГАЛЕРЕЇ
+       ========================= */
 
-closeBtn.addEventListener('click', function() {
+    const galleryItems =
+        document.querySelectorAll(".gallery-item");
 
-    lightbox.classList.remove('active');
+    const lightbox =
+        document.getElementById("lightbox");
 
-});
+    const lightboxImg =
+        document.getElementById("lightbox-img");
+
+    const closeBtn =
+        document.querySelector(".lightbox-close");
 
 
-/* Закриття при натисканні поза фото */
+    /* Перевіряємо, чи Lightbox існує */
 
-lightbox.addEventListener('click', function(e) {
+    if (lightbox && lightboxImg) {
 
-    if (e.target === lightbox) {
-        lightbox.classList.remove('active');
+
+        /* Відкриваємо фото */
+
+        galleryItems.forEach(function (item) {
+
+            item.addEventListener("click", function () {
+
+                const img =
+                    this.querySelector("img");
+
+                if (!img) return;
+
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+
+                lightbox.classList.add("active");
+
+            });
+
+        });
+
+
+        /* Закриваємо кнопкою */
+
+        if (closeBtn) {
+
+            closeBtn.addEventListener("click", function () {
+
+                lightbox.classList.remove("active");
+
+            });
+
+        }
+
+
+        /* Закриття при натисканні поза фото */
+
+        lightbox.addEventListener("click", function (event) {
+
+            if (event.target === lightbox) {
+
+                lightbox.classList.remove("active");
+
+            }
+
+        });
+
+
+        /* Закриття клавішею ESC */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                lightbox.classList.remove("active");
+
+            }
+
+        });
+
     }
 
 });
-
-
-/* Закриття клавішею ESC */
-
-document.addEventListener('keydown', function(e) {
-
-    if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-    }
-
-});
-
 </script>
-
-</body>
-
-</html>
-

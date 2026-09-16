@@ -862,8 +862,105 @@ footer p { margin:5px 0; color:rgba(255,255,255,.6); font-size:13px; }
     header h1 { font-size:27px; }
     header p { font-size:10px; letter-spacing:.05em; }
     .header-logo { width:60px; height:60px; }
-    nav, .navbar { width:100%; flex-direction:column; align-items:stretch; gap:2px; }
-    nav > a, nav a, .navbar a, .dropdown-button { width:100%; justify-content:flex-start; padding:11px 13px; }
+    /* =========================================
+   МОБІЛЬНЕ МЕНЮ — ГОРИЗОНТАЛЬНЕ
+   ========================================= */
+
+header nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 4px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    flex-wrap: nowrap;
+
+    padding: 8px 2px 5px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+header nav::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Пункти меню */
+
+header nav > a,
+header nav .dropdown {
+    flex: 0 0 auto;
+}
+
+header nav > a,
+header nav .dropdown-button {
+    width: auto;
+    min-height: 40px;
+
+    justify-content: center;
+
+    padding: 9px 12px;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+}
+
+
+/* Випадаюче меню */
+
+header nav .dropdown {
+    position: relative;
+}
+
+header nav .dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 5px);
+    left: 50%;
+
+    width: 190px;
+    min-width: 190px;
+
+    transform: translateX(-50%);
+
+    margin: 0;
+
+    z-index: 3000;
+}
+
+
+/* Щоб меню не розтягувалось */
+
+header nav .dropdown-menu a {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    padding: 10px 14px;
+}
+
+
+/* При наведенні / відкритті */
+
+header nav .dropdown:hover .dropdown-menu,
+header nav .dropdown-menu.show {
+    transform: translateX(-50%);
+}
+    header nav > a,
+header nav .dropdown-button {
+    width: auto;
+    justify-content: center;
+    padding: 9px 12px;
+}
     nav > a::after, nav a::after, .dropdown-button::after { display:none; }
     .menu-toggle { display:inline-flex; margin:0 auto 8px; }
     .navbar ul { display:none; width:100%; flex-direction:column; align-items:stretch; }
@@ -1066,4 +1163,604 @@ article { padding:16px 20px; margin-top:15px; background:var(--surface); border-
 
 .hero-slide:nth-child(4) {
     background-position: center 15%;
+}
+
+/* =========================================
+   МОБІЛЬНЕ ВИПАДАЮЧЕ МЕНЮ
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    /* Горизонтальне головне меню */
+    header nav {
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: visible;
+
+        gap: 4px;
+
+        padding: 8px 2px 8px;
+
+        scrollbar-width: none;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* Пункти головного меню */
+    header nav > a,
+    header nav .dropdown {
+        flex: 0 0 auto;
+    }
+
+    header nav > a,
+    header nav .dropdown-button {
+        width: auto;
+
+        min-height: 40px;
+
+        padding: 9px 12px;
+
+        white-space: nowrap;
+
+        justify-content: center;
+
+        font-size: 13px;
+    }
+
+
+    /* Контейнер випадаючого меню */
+    header nav .dropdown {
+        position: relative;
+    }
+
+
+    /* Випадаючий список */
+    header nav .dropdown-menu {
+        position: absolute;
+
+        top: calc(100% + 6px);
+        left: 50%;
+
+        width: 190px;
+        min-width: 190px;
+
+        margin: 0;
+
+        padding: 8px;
+
+        display: none;
+
+        opacity: 0;
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateX(-50%);
+
+        z-index: 9999;
+
+        background: rgba(4, 31, 13, .98);
+
+        border: 1px solid rgba(255,255,255,.12);
+
+        border-radius: 12px;
+
+        box-shadow: var(--shadow-lg);
+    }
+
+
+    /* Відкрите меню */
+    header nav .dropdown-menu.show {
+        display: block;
+
+        opacity: 1;
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateX(-50%);
+    }
+
+
+    /* Посилання всередині */
+    header nav .dropdown-menu a {
+        display: flex;
+
+        width: 100%;
+
+        min-height: 40px;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 9px 12px;
+
+        white-space: nowrap;
+
+        color: rgba(255,255,255,.9);
+
+        border-radius: 8px;
+    }
+
+    header nav .dropdown-menu a:hover {
+        background: var(--green-600);
+        color: var(--white);
+    }
+
+
+    /* При наведенні на ПК */
+    header nav .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        display: block;
+
+        transform: translateX(-50%);
+    }
+}
+
+/* =====================================================
+   MOBILE DROPDOWN — ФІНАЛЬНЕ ВИПРАВЛЕННЯ
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    header nav {
+        position: relative;
+        z-index: 5000;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+
+        gap: 4px;
+        justify-content: flex-start;
+
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* Пункти меню */
+
+    header nav > a,
+    header nav .dropdown {
+        flex: 0 0 auto;
+    }
+
+
+    header nav > a,
+    header nav .dropdown-button {
+        width: auto;
+        min-height: 40px;
+
+        padding: 9px 12px;
+
+        white-space: nowrap;
+
+        font-size: 13px;
+    }
+
+
+    /* Контейнер випадаючого меню */
+
+    header nav .dropdown {
+        position: relative;
+        z-index: 6000;
+    }
+
+
+    /* Саме випадаюче меню */
+
+    header nav .dropdown-menu {
+
+        position: absolute !important;
+
+        top: calc(100% + 6px) !important;
+        left: 0 !important;
+
+        width: 190px !important;
+        min-width: 190px !important;
+
+        margin: 0 !important;
+        padding: 7px !important;
+
+        background: #062611 !important;
+
+        border: 1px solid rgba(255,255,255,.15) !important;
+        border-radius: 12px !important;
+
+        box-shadow: 0 15px 40px rgba(0,0,0,.35) !important;
+
+        transform: none !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+
+        pointer-events: none !important;
+
+        display: block !important;
+
+        z-index: 99999 !important;
+    }
+
+
+    /* Відкрите меню */
+
+    header nav .dropdown-menu.show {
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        pointer-events: auto !important;
+
+        display: block !important;
+
+        transform: none !important;
+    }
+
+
+    /* Пункти всередині */
+
+    header nav .dropdown-menu a {
+
+        display: flex !important;
+
+        width: 100% !important;
+
+        min-height: 40px;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 10px 13px !important;
+
+        color: #ffffff !important;
+
+        text-decoration: none;
+
+        white-space: nowrap;
+
+        border-radius: 8px;
+    }
+
+
+    header nav .dropdown-menu a:hover,
+    header nav .dropdown-menu a:active {
+
+        background: rgba(255,255,255,.10);
+
+        color: #ffffff;
+    }
+
+}
+
+/* =====================================================
+   HEADER + DROPDOWN ПОВЕРХ HERO
+   ===================================================== */
+
+header {
+    position: relative !important;
+    z-index: 100000 !important;
+}
+
+header nav {
+    position: relative !important;
+    z-index: 100001 !important;
+}
+
+header nav .dropdown {
+    position: relative !important;
+    z-index: 100002 !important;
+}
+
+header nav .dropdown-menu {
+    z-index: 100003 !important;
+}
+
+
+/* Hero завжди нижче меню */
+
+.hero {
+    position: relative;
+    z-index: 1 !important;
+}
+
+.hero-slideshow {
+    z-index: 0 !important;
+}
+
+
+/* Вміст Hero також нижче dropdown */
+
+.hero > *:not(.hero-slideshow) {
+    z-index: 2 !important;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        position: relative !important;
+        z-index: 100000 !important;
+    }
+
+    header nav {
+        position: relative !important;
+        z-index: 100001 !important;
+    }
+
+    header nav .dropdown {
+        position: relative !important;
+        z-index: 100002 !important;
+    }
+
+    header nav .dropdown-menu {
+        position: absolute !important;
+        z-index: 999999 !important;
+    }
+
+}
+
+/* =====================================================
+   📱 МОБІЛЬНЕ МЕНЮ + DROPDOWN
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    /* HEADER */
+
+    header {
+        position: relative !important;
+        z-index: 100000 !important;
+    }
+
+
+    /* ГОРИЗОНТАЛЬНЕ МЕНЮ */
+
+    header nav {
+        position: relative !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+
+        justify-content: flex-start !important;
+        align-items: center !important;
+
+        width: 100% !important;
+
+        /* ВАЖЛИВО:
+           не обрізаємо dropdown */
+
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+
+        gap: 4px;
+
+        padding: 8px 2px 5px;
+
+        z-index: 100001 !important;
+    }
+
+
+    /* Пункти меню */
+
+    header nav > a,
+    header nav .dropdown {
+        flex: 0 0 auto !important;
+    }
+
+
+    header nav > a,
+    header nav .dropdown-button {
+
+        width: auto !important;
+
+        min-height: 40px;
+
+        padding: 9px 12px;
+
+        white-space: nowrap;
+
+        font-size: 13px;
+
+        justify-content: center;
+    }
+
+
+    /* DROPDOWN */
+
+    header nav .dropdown {
+
+        position: relative !important;
+
+        z-index: 100002 !important;
+    }
+
+
+    /* Сам список */
+
+    header nav .dropdown-menu {
+
+        position: absolute !important;
+
+        top: calc(100% + 6px) !important;
+
+        left: 0 !important;
+
+        width: 190px !important;
+
+        min-width: 190px !important;
+
+        margin: 0 !important;
+
+        padding: 7px !important;
+
+        background: #062611 !important;
+
+        border: 1px solid rgba(255,255,255,.18) !important;
+
+        border-radius: 12px !important;
+
+        box-shadow:
+            0 18px 45px rgba(0,0,0,.45) !important;
+
+        display: block !important;
+
+        opacity: 0 !important;
+
+        visibility: hidden !important;
+
+        pointer-events: none !important;
+
+        transform: translateY(-5px) !important;
+
+        z-index: 999999 !important;
+
+        transition:
+            opacity .2s ease,
+            transform .2s ease,
+            visibility .2s ease;
+    }
+
+
+    /* ВІДКРИТЕ МЕНЮ */
+
+    header nav .dropdown-menu.show {
+
+        display: block !important;
+
+        opacity: 1 !important;
+
+        visibility: visible !important;
+
+        pointer-events: auto !important;
+
+        transform: translateY(0) !important;
+
+        z-index: 999999 !important;
+    }
+
+
+    /* Пункти dropdown */
+
+    header nav .dropdown-menu a {
+
+        display: flex !important;
+
+        width: 100% !important;
+
+        min-height: 40px;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        padding: 10px 13px !important;
+
+        color: #fff !important;
+
+        background: transparent !important;
+
+        text-decoration: none !important;
+
+        white-space: nowrap;
+
+        border-radius: 8px;
+    }
+
+
+    header nav .dropdown-menu a:active,
+    header nav .dropdown-menu a:hover {
+
+        background: rgba(255,255,255,.10) !important;
+
+        color: #fff !important;
+    }
+
+
+    /* HERO НИЖЧЕ МЕНЮ */
+
+    .hero {
+
+        position: relative !important;
+
+        z-index: 1 !important;
+    }
+
+}
+
+/* =====================================================
+   📱 МОБІЛЬНА ПРОКРУТКА МЕНЮ
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    /* Горизонтальна прокрутка меню */
+
+    header nav {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        position: relative;
+        z-index: 10000;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* Пункти меню не стискаються */
+
+    header nav > a,
+    header nav .dropdown {
+        flex: 0 0 auto !important;
+    }
+
+
+    /* Коли відкрито випадаюче меню —
+       дозволяємо йому виходити за межі nav */
+
+    header nav.dropdown-open {
+        overflow: visible !important;
+    }
+
+
+    /* Dropdown поверх Hero */
+
+    header nav .dropdown {
+        position: relative !important;
+        z-index: 10001 !important;
+    }
+
+    header nav .dropdown-menu {
+        z-index: 99999 !important;
+    }
+
 }

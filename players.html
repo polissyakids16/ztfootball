@@ -729,18 +729,107 @@
     </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-function toggleDropdown() {
+    const dropdownButtons =
+        document.querySelectorAll(".dropdown-button");
 
-    const dropdown =
-        document.getElementById("age-dropdown");
+    const nav =
+        document.querySelector("header nav");
 
-    dropdown.classList.toggle("show");
 
-}
+    dropdownButtons.forEach(function (button) {
 
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const currentDropdown =
+                button.closest(".dropdown");
+
+            if (!currentDropdown) return;
+
+            const currentMenu =
+                currentDropdown.querySelector(".dropdown-menu");
+
+            if (!currentMenu) return;
+
+
+            /* Закриваємо інші меню */
+
+            document
+                .querySelectorAll(".dropdown-menu.show")
+                .forEach(function (otherMenu) {
+
+                    if (otherMenu !== currentMenu) {
+                        otherMenu.classList.remove("show");
+                    }
+
+                });
+
+
+            /* Відкриваємо / закриваємо */
+
+            const isOpening =
+                !currentMenu.classList.contains("show");
+
+            currentMenu.classList.toggle("show");
+
+
+            /* На телефоні дозволяємо dropdown
+               виходити за межі меню */
+
+            if (nav && window.innerWidth <= 700) {
+
+                if (isOpening) {
+                    nav.classList.add("dropdown-open");
+                } else {
+                    nav.classList.remove("dropdown-open");
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* Закриття при натисканні поза меню */
+
+    document.addEventListener("click", function () {
+
+        document
+            .querySelectorAll(".dropdown-menu.show")
+            .forEach(function (menu) {
+
+                menu.classList.remove("show");
+
+            });
+
+        if (nav) {
+            nav.classList.remove("dropdown-open");
+        }
+
+    });
+
+
+    /* Клік всередині dropdown */
+
+    document
+        .querySelectorAll(".dropdown-menu")
+        .forEach(function (menu) {
+
+            menu.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+            });
+
+        });
+
+});
 </script>
 
 </body>
-
 </html>

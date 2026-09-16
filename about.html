@@ -38,25 +38,25 @@
             <a href="https://www.facebook.com/polissyalitsei16"
                target="_blank"
                aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
+                <i class="fa-brands fa-facebook"></i>
             </a>
 
             <a href="http://www.youtube.com/@football.zt-16"
                target="_blank"
                aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
+                <i class="fa-brands fa-youtube"></i>
             </a>
 
             <a href="https://www.instagram.com/polissya_kids"
                target="_blank"
                aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
+                <i class="fa-brands fa-instagram"></i>
             </a>
 
             <a href="https://www.tiktok.com/@polissya.kids"
                target="_blank"
                aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
+                <i class="fa-brands fa-tiktok"></i>
             </a>
 
         </div>
@@ -95,32 +95,34 @@
         </div>
 
 
-        <!-- ТУРНІРИ -->
-        <div class="dropdown">
+    <!-- ТУРНІРИ -->
+    <div class="dropdown">
 
-            <button class="dropdown-button">
-                Турніри ▾
-            </button>
+        <button class="dropdown-button">
+            Турніри ▾
+        </button>
 
-            <div class="dropdown-menu">
+        <div class="dropdown-menu">
 
-                <a href="tournaments.html">Поточні</a>
-                <a href="tournaments-planned.html">Майбутні</a>
-                <a href="tournaments-completed.html">Завершені</a>
-
-            </div>
+            <a href="tournaments.html">Поточні</a>
+            <a href="tournaments-planned.html">Майбутні</a>
+            <a href="tournaments-completed.html">Завершені</a>
 
         </div>
 
+    </div>
 
-        <a href="gallery.html">Галерея</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="contacts.html">Контакти</a>
 
-        <a href="contacts.html">Контакти</a>
+</nav>
 
-    </nav>
+    </header>
 
-</header>
- <!-- Основний контент --> <main> 
+
+ <!-- Основний контент --> 
+  
+ <main> 
             <section class="page-title next-match-modern scroll-animate animate-right"> 
                 <h2>Про нашу команду</h2>
                  <p> Polissya Kids 16L — команда юних футболістів, які люблять футбол та прагнуть перемог. </p> 
@@ -169,36 +171,12 @@
 <!-- Підвал --> 
  <footer> 
     <p>© 2026 Polissya Kids 16L. Created by | Kuzko Anatolii</p> </footer> 
-<script>
 
-function toggleDropdown() {
-
-    const dropdown =
-        document.getElementById("age-dropdown");
-
-    dropdown.classList.toggle("show");
-
-}
-
-</script>
  <script>
 function toggleMenu() {
     const menu = document.getElementById("main-menu");
     menu.classList.toggle("show");
 }
-</script>
-
-<script>
-
-function toggleDropdown() {
-
-    const dropdown =
-        document.getElementById("age-dropdown");
-
-    dropdown.classList.toggle("show");
-
-}
-
 </script>
 
 <script>
@@ -231,6 +209,109 @@ document.addEventListener("DOMContentLoaded", function () {
     animatedBlocks.forEach((block) => {
         observer.observe(block);
     });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const dropdownButtons =
+        document.querySelectorAll(".dropdown-button");
+
+    const nav =
+        document.querySelector("header nav");
+
+
+    dropdownButtons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const currentDropdown =
+                button.closest(".dropdown");
+
+            if (!currentDropdown) return;
+
+            const currentMenu =
+                currentDropdown.querySelector(".dropdown-menu");
+
+            if (!currentMenu) return;
+
+
+            /* Закриваємо інші меню */
+
+            document
+                .querySelectorAll(".dropdown-menu.show")
+                .forEach(function (otherMenu) {
+
+                    if (otherMenu !== currentMenu) {
+                        otherMenu.classList.remove("show");
+                    }
+
+                });
+
+
+            /* Відкриваємо / закриваємо */
+
+            const isOpening =
+                !currentMenu.classList.contains("show");
+
+            currentMenu.classList.toggle("show");
+
+
+            /* На телефоні дозволяємо dropdown
+               виходити за межі меню */
+
+            if (nav && window.innerWidth <= 700) {
+
+                if (isOpening) {
+                    nav.classList.add("dropdown-open");
+                } else {
+                    nav.classList.remove("dropdown-open");
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* Закриття при натисканні поза меню */
+
+    document.addEventListener("click", function () {
+
+        document
+            .querySelectorAll(".dropdown-menu.show")
+            .forEach(function (menu) {
+
+                menu.classList.remove("show");
+
+            });
+
+        if (nav) {
+            nav.classList.remove("dropdown-open");
+        }
+
+    });
+
+
+    /* Клік всередині dropdown */
+
+    document
+        .querySelectorAll(".dropdown-menu")
+        .forEach(function (menu) {
+
+            menu.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+            });
+
+        });
 
 });
 </script>

@@ -601,18 +601,6 @@ function toggleMenu() {
 }
 </script>
 
-<script>
-
-function toggleDropdown() {
-
-    const dropdown =
-        document.getElementById("age-dropdown");
-
-    dropdown.classList.toggle("show");
-
-}
-
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -649,27 +637,199 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const slides = document.querySelectorAll('.hero-slide');
+    /* ===============================
+       ВИПАДАЮЧІ МЕНЮ
+       =============================== */
 
-    if (!slides.length) return;
+    const dropdownButtons =
+        document.querySelectorAll(".dropdown-button");
 
-    let currentSlide = 0;
+   const nav = document.querySelector("header nav");
 
-    setInterval(function () {
+dropdownButtons.forEach(function (button) {
 
-        slides[currentSlide].classList.remove('active');
+    button.addEventListener("click", function (event) {
 
-        currentSlide++;
+        event.preventDefault();
+        event.stopPropagation();
 
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
+        const currentDropdown =
+            button.closest(".dropdown");
+
+        if (!currentDropdown) return;
+
+        const currentMenu =
+            currentDropdown.querySelector(".dropdown-menu");
+
+        if (!currentMenu) return;
+
+
+        /* Закриваємо інші меню */
+
+        document
+            .querySelectorAll(".dropdown-menu.show")
+            .forEach(function (otherMenu) {
+
+                if (otherMenu !== currentMenu) {
+                    otherMenu.classList.remove("show");
+                }
+
+            });
+
+
+        /* Відкриваємо / закриваємо */
+
+        const isOpening =
+            !currentMenu.classList.contains("show");
+
+        currentMenu.classList.toggle("show");
+
+
+        /* На телефоні прибираємо обрізання */
+
+        if (nav && window.innerWidth <= 700) {
+
+            if (isOpening) {
+
+                nav.classList.add("dropdown-open");
+
+            } else {
+
+                nav.classList.remove("dropdown-open");
+
+            }
+
         }
 
-        slides[currentSlide].classList.add('active');
+    });
 
-    }, 10000);
+});
+
+
+/* Закриваємо при натисканні поза меню */
+
+document.addEventListener("click", function () {
+
+    document
+        .querySelectorAll(".dropdown-menu.show")
+        .forEach(function (menu) {
+
+            menu.classList.remove("show");
+
+        });
+
+    if (nav) {
+        nav.classList.remove("dropdown-open");
+    }
+
+});
+
+
+/* Не закривати dropdown при натисканні всередині */
+
+document
+    .querySelectorAll(".dropdown-menu")
+    .forEach(function (menu) {
+
+        menu.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+        });
+
+    });
+
+
+    /* Закриття меню при натисканні поза ним */
+
+    document.addEventListener("click", function () {
+
+        document
+            .querySelectorAll(".dropdown-menu.show")
+            .forEach(function (menu) {
+
+                menu.classList.remove("show");
+
+            });
+
+    });
+
+
+    /* ===============================
+       АНІМАЦІЯ БЛОКІВ
+       =============================== */
+
+    const animatedBlocks =
+        document.querySelectorAll(".scroll-animate");
+
+    if ("IntersectionObserver" in window) {
+
+        const observer =
+            new IntersectionObserver(function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.15
+            });
+
+
+        animatedBlocks.forEach(function (block) {
+            observer.observe(block);
+        });
+
+    }
+
+
+    /* ===============================
+       HERO — 4 ФОТО КОЖНІ 10 СЕКУНД
+       =============================== */
+
+    const slides =
+        document.querySelectorAll(".hero-slide");
+
+    if (slides.length > 1) {
+
+        let currentSlide = 0;
+
+        slides.forEach(function (slide, index) {
+
+            slide.classList.toggle(
+                "active",
+                index === 0
+            );
+
+        });
+
+        setInterval(function () {
+
+            slides[currentSlide]
+                .classList.remove("active");
+
+            currentSlide++;
+
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+
+            slides[currentSlide]
+                .classList.add("active");
+
+        }, 10000);
+
+    }
 
 });
 </script>
