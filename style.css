@@ -602,7 +602,7 @@ section h3 { color: var(--green-700); }
     position: relative;
     text-align: center;
     background: linear-gradient(135deg, var(--green-950), var(--green-800));
-    color: var(--white);
+    /*color: var(--white);*/
     border: 0;
     overflow: hidden;
 }
