@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://polissyakids16.github.io/ztfootball//sitemap.xml
+Sitemap: https://polissyakids16l.com.ua/sitemap.xml
