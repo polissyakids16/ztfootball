@@ -1,0 +1,4206 @@
+/* =========================
+   ОСНОВНІ НАЛАШТУВАННЯ
+   ========================= */
+/** {
+    box-sizing: border-box;
+}*/
+
+body {
+     margin: 0;
+    font-family: Arial, sans-serif;
+    color: #122018;
+
+    background-color: #f4f7f4;
+    background-image:url("images/football-field.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   ШАПКА
+   ========================= */
+
+header {
+    background-color: #024e13;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 36px;
+}
+
+header p {
+    margin: 0 0 25px;
+    font-size: 18px;
+}
+
+
+/ =========================
+   МЕНЮ
+   ========================= /
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 18px;
+    margin: 4px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background-color: white;
+    color: white;
+}
+
+
+/ =========================
+   ОСНОВНИЙ КОНТЕНТ
+   ========================= /
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #000000;
+    margin-top: 0;
+    font-size: 28px;
+}
+
+section h3 {
+    color: #087f23;
+}
+
+
+/ =========================
+   НОВИНИ
+   ========================= /
+
+article {
+    border-left: 5px solid #087f23;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #f4f7f4;
+}
+
+
+/ =========================
+   ПІДВАЛ
+   ========================= /
+
+footer {
+    background-color: #075c1a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px;
+    text-align: center;
+}
+
+
+/ =========================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+}
+/* =========================
+   ГОЛОВНИЙ HERO-БЛОК
+   ========================= */
+
+.hero {
+    min-height: 600px;
+
+    background-image:url("images/team.jpg");
+
+    background-size: cover;
+    /*background-position: center;*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+    border-radius: 15px;
+}
+
+
+/* Вміст HERO */
+
+.hero-content {
+    padding: 30px;
+}
+
+
+/* Логотип */
+
+.logo {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+}
+
+
+/* Заголовок */
+
+.hero h2 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+
+/* Текст */
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+
+/* Кнопка */
+
+.hero-button {
+    display: inline-block;
+
+    background-color: white;
+    color: #087f23;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: 14px 30px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+
+/ Ефект при наведенні */
+
+.hero-button:hover {
+    background-color: #087f23;
+    color: white;
+    transform: scale(1.05);
+}
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+
+}
+/* =========================
+   СТОРІНКА ПРО КОМАНДУ
+   ========================= */
+
+.header-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.page-title h2 {
+    font-size: 36px;
+}
+
+
+/* Фото команди */
+
+.team-photo {
+    width: 100%;
+    max-width: 900px;
+    height: 580px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-photo img {
+    width: 100%;
+    display: block;
+}
+
+
+/* Цінності */
+
+.values {
+    display: flex;
+    gap: 20px;
+}
+
+.value-card {
+    flex: 1;
+    background-color: #f4f7f4;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid #087f23;
+}
+
+.value-card h3 {
+    margin-top: 0;
+}
+
+
+/ Телефон */
+
+@media (max-width: 600px) {
+
+    .values {
+        flex-direction: column;
+    }
+
+    .page-title h2 {
+        font-size: 28px;
+    }
+
+}
+/* =========================
+   КАРТКИ ГРАВЦІВ
+   ========================= */
+
+.player-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.players {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.player-card {
+    background-color: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition: 0.3s;
+}
+
+
+.player-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+.player-card img {
+    width: 80%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    border-radius: 12px 12px 0 0;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+.player-info {
+    padding: 20px;
+
+    text-align: center;
+}
+
+
+.player-info h3 {
+    margin: 10px 0 5px;
+
+    color: #087f23;
+
+    font-size: 22px;
+}
+
+
+.player-info p {
+    margin: 5px 0;
+
+    color: #555;
+}
+
+
+.player-number {
+    display: inline-block;
+
+    background-color: #087f23;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+
+/* Планшет */
+
+@media (max-width: 900px) {
+
+    .players {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/ Телефон */
+
+@media (max-width: 900px) {
+
+    .players {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .players {
+        grid-template-columns: 1fr;
+    }
+
+    .player-card img {
+        height: 280px;
+    }
+
+}
+/* =========================
+   ТУРНІРИ
+   ========================= */
+
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.tournament-card {
+    padding: 25px;
+    background-color: #f4f7f4;
+    border-left: 5px solid #087f23;
+    border-radius: 8px;
+}
+
+.tournament-card h3 {
+    font-size: 23px;
+    margin-top: 15px;
+}
+
+.tournament-status {
+    display: inline-block;
+    background-color: #087f23;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   РЕЗУЛЬТАТИ МАТЧІВ
+   ========================= */
+
+.matches {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.match {
+    background-color: #f4f7f4;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #087f23;
+}
+
+.match div {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+.match div span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f23;
+}
+
+.match p {
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #087f23;
+}
+
+
+/* =========================
+   ТАБЛИЦЯ
+   ========================= */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th {
+    background-color: #087f23;
+    color: white;
+    padding: 14px;
+    text-align: center;
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+   background-color: #f4f7f4;
+}
+
+/*tbody tr:first-child {
+    background-color: #e9f5eb;
+}*/
+
+
+/* =========================
+   ЗАВЕРШЕНІ ТУРНІРИ
+   ========================= */
+
+.finished-tournament {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #f4f7f4;
+    border-radius: 8px;
+}
+
+.finished-tournament h3 {
+    margin-top: 0;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .tournament-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tournament-card {
+        padding: 20px;
+    }
+
+    .match {
+        padding: 15px;
+    }
+
+}
+/* =========================
+   КОНТАКТИ
+   ========================= */
+
+.contacts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    text-align: center;
+    background-color: #f4f7f4;
+    padding: 25px 15px;
+    border-radius: 10px;
+    border-top: 4px solid #087f23;
+}
+
+.contact-icon {
+    font-size: 40px;
+}
+
+.contact-card h3 {
+    color: #087f23;
+    margin: 12px 0 8px;
+}
+
+.contact-card a {
+    color: #087f23;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   СОЦІАЛЬНІ МЕРЕЖІ
+   ========================= */
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-button {
+    display: inline-block;
+    background-color: #087f23;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.social-button:hover {
+    background-color: #075c1a;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   ФОРМА
+   ========================= */
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #087f23;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    background-color: #087f23;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #075c1a;
+}
+
+
+/* =========================
+   КАРТА
+   ========================= */
+
+.map-placeholder {
+    min-height: 250px;
+    background-color: #e9f5eb;
+    border: 2px dashed #087f23;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.map-placeholder p {
+    color: #087f23;
+    font-weight: bold;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .contacts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .contacts {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-button {
+        text-align: center;
+    }
+
+}
+/* =========================
+   СТАТИСТИКА
+   ========================= */
+
+.statistics {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat {
+    background-color: #087f23;
+    color: white;
+
+    padding: 25px;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 36px;
+}
+
+.stat span {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+
+/* =========================
+   HERO КНОПКИ
+   ========================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-button {
+    border: 2px solid white;
+}
+
+
+/* =========================
+   НАЙБЛИЖЧИЙ МАТЧ
+   ========================= */
+
+.next-match {
+    text-align: center;
+}
+
+.match-date {
+    color: #666;
+    font-weight: bold;
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    margin: 30px 0;
+}
+
+.team {
+    width: 180px;
+}
+
+.team img,
+.opponent-logo {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    margin: 0 auto 10px;
+}
+
+.opponent-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+
+    background-color: #f4f7f4;
+    border-radius: 50%;
+}
+
+.team h3 {
+    color: #087f23;
+}
+
+.vs {
+    font-size: 28px;
+    font-weight: bold;
+    color: #087f23;
+}
+
+
+/* =========================
+   ЗЕЛЕНА КНОПКА
+   ========================= */
+
+.green-button {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 25px;
+
+    background-color: #087f23;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 7px;
+
+    transition: 0.3s;
+}
+
+.green-button:hover {
+    background-color: #075c1a;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ДОСЯГНЕННЯ
+   ========================= */
+
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.achievement {
+    text-align: center;
+
+    background-color: #f4f7f4;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border-top: 5px solid #087f23;
+}
+
+.achievement-icon {
+    font-size: 50px;
+}
+
+.achievement h3 {
+    color: #087f23;
+}
+
+
+/* =========================
+   НОВИНИ
+   ========================= */
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.news-card {
+    background-color: #f4f7f4;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border-left: 5px solid #087f23;
+}
+
+.news-card h3 {
+    color: #087f23;
+}
+
+.news-date {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+
+    .news {
+        grid-template-columns: 1fr;
+    }
+
+    .match-teams {
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .statistics {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat {
+        padding: 18px 10px;
+    }
+
+    .stat strong {
+        font-size: 28px;
+    }
+
+    .match-teams {
+        gap: 10px;
+    }
+
+    .team {
+        width: 120px;
+    }
+
+    .team img,
+    .opponent-logo {
+        width: 75px;
+        height: 75px;
+    }
+
+    .vs {
+        font-size: 20px;
+    }
+
+}
+@media (max-width: 600px) {
+
+    .team-photo {
+        height: 300px;
+    }
+
+    .player-card img {
+        height: 280px;
+    }
+
+}
+/* ================================
+   АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНА
+================================ */
+
+@media (max-width: 768px) {
+
+    /* Шапка */
+    header {
+        padding: 15px 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    /* Меню */
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+        padding: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    /* Основний контент */
+    main {
+        padding: 20px 10px;
+    }
+
+    /* Заголовки */
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 500px;
+        padding: 30px 15px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-button,
+    .green-button {
+        width: 90%;
+        text-align: center;
+    }
+
+    /* Статистика */
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* Гравці */
+    .players {
+        grid-template-columns: 1fr;
+    }
+
+    /* Турніри */
+    .tournament-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Досягнення */
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+
+    /* Новини */
+    .news {
+        grid-template-columns: 1fr;
+    }
+
+    /* Контакти */
+    .contacts {
+        grid-template-columns: 1fr;
+    }
+
+    /* Фото команди */
+    .team-photo {
+        height: 300px;
+    }
+
+}
+/* ================================
+   МОБІЛЬНЕ МЕНЮ
+================================ */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar ul.show {
+        display: flex;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 12px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+}
+/* ================================
+   СТОРІНКА ГРАВЦЯ
+================================ */
+
+.player-profile {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.player-profile > h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.player-profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.player-profile-photo img {
+    width: 100%;
+    max-width: 450px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.player-profile-info h1 {
+    font-size: 50px;
+    color: #087f23;
+    margin-bottom: 10px;
+}
+
+.player-profile-info h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.player-profile-info p {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+
+/* Статистика */
+
+.player-statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.player-statistics div {
+    background: #f4f7f4;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.player-statistics strong {
+    display: block;
+    font-size: 30px;
+    color: #087f23;
+}
+
+.player-statistics span {
+    font-size: 14px;
+}
+
+
+/* Досягнення */
+
+.player-achievements {
+    margin-top: 50px;
+    padding: 30px;
+    background: #f4f7f4;
+    border-radius: 15px;
+}
+
+.player-achievements h2 {
+    color: #087f23;
+}
+
+.player-achievements li {
+    margin: 12px 0;
+    font-size: 17px;
+}
+
+
+/* Кнопка */
+
+.player-profile .green-button {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+
+/* Телефон */
+
+@media (max-width: 768px) {
+
+    .player-profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .player-profile-photo img {
+        height: 400px;
+    }
+
+    .player-profile-info {
+        text-align: center;
+    }
+
+    .player-profile-info h1 {
+        font-size: 40px;
+    }
+
+    .player-profile-info h2 {
+        font-size: 26px;
+    }
+
+    .player-statistics {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+/* =========================
+   СТАТИСТИКА КОМАНДИ
+========================= */
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.stat {
+    background: white;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    transition: 0.3s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat strong {
+    display: block;
+    font-size: 38px;
+    color: #087f23;
+    margin-bottom: 8px;
+}
+
+.stat span {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 25px 10px;
+    }
+
+    .stat {
+        padding: 20px 10px;
+    }
+
+    .stat strong {
+        font-size: 30px;
+    }
+
+    .stat span {
+        font-size: 14px;
+    }
+
+}
+
+/* =========================
+   ТАБЛИЦЯ СТАТИСТИКИ ГРАВЦІВ
+========================= */
+
+.player-statistics-table {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.player-statistics-table h2 {
+    text-align: center;
+    color: #087f23;
+    margin-bottom: 25px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.player-statistics-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.player-statistics-table th {
+    background: #087f23;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.player-statistics-table td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.player-statistics-table tr:hover {
+    background: #f4f7f4;
+}
+
+.player-statistics-table td:nth-child(2) {
+    font-weight: bold;
+    color: #087f23;
+}
+@media (max-width: 600px) {
+
+    .player-statistics-table {
+        padding: 0 10px;
+    }
+
+    .player-statistics-table th,
+    .player-statistics-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+}
+
+/* =========================
+   РЕЗУЛЬТАТИ МАТЧІВ
+========================= */
+
+.matches-section {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.matches-section h2,
+.standings-section h2,
+.next-match h2 {
+    text-align: center;
+}
+
+.match {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.match-date {
+    text-align: center;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+.match-teams span {
+    font-weight: bold;
+    min-width: 180px;
+}
+
+.match-teams strong {
+    font-size: 26px;
+    color: #087f23;
+}
+
+.match-result {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.result-win {
+    border-left: 6px solid #087f23;
+}
+
+.result-draw {
+    border-left: 6px solid #e0b000;
+}
+
+.result-loss {
+    border-left: 6px solid #d32f2f;
+}
+
+
+/* =========================
+   ТУРНІРНА ТАБЛИЦЯ
+========================= */
+
+.standings-section {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+}
+
+.standings-table th {
+    background: #087f23;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.standings-table td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.standings-table td:nth-child(2) {
+    text-align: left;
+    font-weight: bold;
+}
+
+.standings-table tr:hover {
+    background: #f4f7f4;
+}
+
+
+/* Наша команда */
+
+.standings-table .our-team {
+    background: #e9f5eb;
+    font-weight: bold;
+}
+
+.standings-table .our-team td {
+    color: #087f23;
+}
+
+.table-info {
+    text-align: center;
+    color: #000000;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   НАСТУПНИЙ МАТЧ
+========================= */
+
+.next-match {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.next-match-card {
+    background: white;
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.next-match-date {
+    color: #087f23;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.next-match-card .match-teams {
+    font-size: 20px;
+}
+
+.next-match-card .match-teams strong {
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+
+    .match {
+        padding: 15px 10px;
+    }
+
+    .match-teams {
+        gap: 8px;
+    }
+
+    .match-teams span {
+        min-width: auto;
+        width: 40%;
+        font-size: 14px;
+    }
+
+    .match-teams strong {
+        font-size: 20px;
+    }
+
+    .standings-section {
+        padding: 0 10px;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 10px 6px;
+        font-size: 13px;
+    }
+
+    .next-match {
+        padding: 0 10px;
+    }
+
+}
+
+/* =========================
+   ФОРМА ДОДАВАННЯ МАТЧУ
+========================= */
+
+.add-match {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.add-match-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.add-match-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.add-match-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.add-match-form input:focus {
+    outline: none;
+    border-color: #087f23;
+}
+
+.add-match-form button {
+    grid-column: 1 / -1;
+    border: none;
+    cursor: pointer;
+}
+
+#match-message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   ЗБЕРЕЖЕНІ МАТЧІ
+========================= */
+
+.saved-matches {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.saved-match {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.saved-match-info {
+    flex: 1;
+}
+
+.saved-match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.saved-match-teams span {
+    min-width: 180px;
+    text-align: center;
+}
+
+.saved-match-teams strong {
+    color: #087f23;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.saved-match-score {
+    color: #087f23;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.delete-match {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.delete-match:hover {
+    background: #b71c1c;
+}
+
+.no-matches {
+    text-align: center;
+    color: #777;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+
+    .saved-match {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .delete-match {
+        width: 100%;
+    }
+
+    .saved-match-teams {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saved-match-teams span {
+    min-width: auto;
+}
+
+}
+
+/* =========================
+   КНОПКИ МАТЧУ
+========================= */
+
+.match-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.edit-match,
+.delete-match {
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-match {
+    background: #087f23;
+}
+
+.edit-match:hover {
+    background: #075c1a;
+}
+
+.delete-match {
+    background: #d32f2f;
+}
+
+.delete-match:hover {
+    background: #b71c1c;
+}
+
+
+@media (max-width: 600px) {
+
+    .match-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .edit-match,
+    .delete-match {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   ДАТА, ТУР І МІСЦЕ МАТЧУ
+========================= */
+
+.saved-match-date {
+    color: #087f23;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.saved-match-round {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.saved-match-place {
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+========================= */
+
+@media (max-width: 600px) {
+
+    .saved-match-date,
+    .saved-match-round,
+    .saved-match-place {
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   ФОРМА РЕДАГУВАННЯ
+========================= */
+
+.edit-match-section {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.edit-match-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edit-match-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.edit-match-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.edit-match-form input:focus {
+    outline: none;
+    border-color: #087f23;
+}
+
+.edit-form-buttons {
+    grid-column: 1 / -1;
+
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.edit-form-buttons button {
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.cancel-edit {
+    background: #777;
+    color: white;
+}
+
+.cancel-edit:hover {
+    background: #555;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+========================= */
+
+@media (max-width: 600px) {
+
+    .edit-match-form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .edit-form-buttons {
+        grid-column: auto;
+        flex-direction: column;
+    }
+
+    .edit-form-buttons button {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   НАСТУПНИЙ МАТЧ
+========================= */
+
+.next-match {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.next-match-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-top: 5px solid #087f23;
+}
+
+.next-match-date {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f23;
+    margin-bottom: 8px;
+}
+
+.next-match-round {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.next-match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 25px 0;
+}
+
+.next-team {
+    font-size: 25px;
+    font-weight: bold;
+    color: #222;
+    min-width: 200px;
+}
+
+.next-vs {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f23;
+}
+
+.next-match-place {
+    margin-top: 25px;
+    color: #555;
+    font-size: 17px;
+}
+
+.next-match-card .no-matches {
+    padding: 20px;
+    color: #666;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 600px) {
+
+    .next-match {
+        padding: 0 15px;
+        margin: 35px auto;
+    }
+
+    .next-match-card {
+        padding: 25px 15px;
+    }
+
+    .next-match-teams {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .next-team {
+        min-width: auto;
+        font-size: 21px;
+    }
+
+    .next-vs {
+        font-size: 18px;
+    }
+
+    .next-match-date {
+        font-size: 19px;
+    }
+
+}
+
+/* =========================
+   ТУРНІРНА ТАБЛИЦЯ
+========================= */
+
+.standings {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.standings-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.standings-table th {
+    background: #087f23;
+    color: white;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.standings-table td {
+    padding: 13px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.standings-table td:nth-child(2) {
+    text-align: left;
+    font-weight: bold;
+}
+
+.standings-table tr:hover {
+    background: #f4f7f4;
+}
+
+/* Наша команда */
+
+.standings-table .our-team {
+    background: #e4f5e7;
+    font-weight: bold;
+}
+
+.standings-table .our-team td {
+    color: #075c1a;
+}
+
+/* Перше місце */
+
+.standings-table .first-place td:first-child {
+    font-weight: bold;
+}
+
+/* Мобільна версія */
+
+@media (max-width: 600px) {
+
+    .standings {
+        padding: 0 10px;
+        margin: 35px auto;
+    }
+
+    .standings-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+}
+
+.match-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto 25px;
+}
+
+.filter-button {
+    padding: 10px 18px;
+    border: 2px solid #087f23;
+    border-radius: 25px;
+    background: #087f23;
+    color: #White;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: #087f23;
+    color: white;
+}
+
+/* =========================
+   КОМПАКТНИЙ ВИГЛЯД:
+   СТОРІНКА «ТУРНІРИ»
+========================= */
+
+main {
+    max-width: 1000px;
+    margin: 24px auto 32px;
+    padding: 0 16px;
+}
+
+.standings-section,
+.next-match,
+.add-match,
+.edit-match-section,
+.future-matches,
+.completed-matches {
+    margin: 0 auto 22px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.standings-section h2,
+.next-match h2,
+.add-match h2,
+.edit-match-section h2,
+.future-matches h2,
+.completed-matches h2 {
+    margin-bottom: 14px;
+    font-size: 24px;
+}
+
+/* Турнірна таблиця */
+
+.standings-table th,
+.standings-table td {
+    padding: 10px 8px;
+}
+
+.table-info {
+    margin-top: 10px;
+}
+
+/* Картка наступного матчу */
+
+.next-match {
+    max-width: 760px;
+}
+
+.next-match-card {
+    padding: 22px 20px;
+    border-radius: 14px;
+}
+
+.next-match-date {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.next-match-round {
+    margin-bottom: 16px;
+}
+
+.next-match-teams {
+    gap: 20px;
+    margin: 14px 0;
+}
+
+.next-team {
+    min-width: 150px;
+    font-size: 20px;
+}
+
+.next-match-place {
+    margin-top: 16px;
+    font-size: 15px;
+}
+
+/* Форми */
+
+.add-match-form,
+.edit-match-form {
+    padding: 20px;
+    gap: 12px;
+    border-radius: 12px;
+}
+
+.add-match-form label,
+.edit-match-form label {
+    gap: 5px;
+}
+
+.add-match-form input,
+.edit-match-form input {
+    padding: 10px;
+}
+
+#match-message {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/* Майбутні та завершені матчі */
+
+.matches-calendar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.match-filters {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.saved-match {
+    padding: 14px;
+    margin-bottom: 10px;
+    gap: 12px;
+    border-radius: 10px;
+}
+
+.saved-match-teams {
+    gap: 12px;
+    font-size: 16px;
+}
+
+.saved-match-teams span {
+    min-width: 120px;
+}
+
+.saved-match-teams strong {
+    font-size: 20px;
+}
+
+.edit-match,
+.delete-match {
+    padding: 8px 11px;
+    font-size: 13px;
+}
+
+.no-matches {
+    padding: 20px;
+}
+
+/* Телефони й вузькі екрани */
+
+@media (max-width: 800px) {
+
+    .matches-calendar {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 18px auto 24px;
+        padding: 0 10px;
+    }
+
+    .standings-section h2,
+    .next-match h2,
+    .add-match h2,
+    .edit-match-section h2,
+    .future-matches h2,
+    .completed-matches h2 {
+        font-size: 21px;
+    }
+
+    .next-match-card {
+        padding: 20px 14px;
+    }
+
+    .next-match-teams {
+        gap: 10px;
+        margin: 12px 0;
+    }
+
+    .next-team {
+        font-size: 18px;
+    }
+
+    .add-match-form,
+    .edit-match-form {
+        padding: 16px;
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+}
+/* =========================
+   ШАПКА: ЛОГОТИП ЛІВОРУЧ,
+   МЕНЮ ПРАВОРУЧ
+========================= */
+
+@media (min-width: 901px) {
+
+    header {
+        display: grid;
+        grid-template-columns: auto minmax(180px, 1fr) auto;
+        grid-template-rows: auto auto;
+        align-items: center;
+
+        padding: 16px 24px;
+        text-align: left;
+    }
+
+    .header-logo {
+        grid-column: 1;
+        grid-row: 1 / 3;
+
+        width: 64px;
+        height: 64px;
+        margin: 0 14px 0 0;
+    }
+
+    header h1 {
+        grid-column: 2;
+        grid-row: 1;
+
+        margin: 0;
+        font-size: 30px;
+        text-align: left;
+    }
+
+    header p {
+        grid-column: 2;
+        grid-row: 2;
+
+        margin: 4px 0 0;
+        font-size: 15px;
+        text-align: left;
+    }
+
+    header nav {
+        position: static;
+        grid-column: 3;
+        grid-row: 1 / 3;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+
+        /*max-width: 620px;*/
+        margin: 0;
+    }
+
+    header nav a {
+        margin: 2px;
+        padding: 9px 13px;
+    }
+
+    .age-groups {
+        margin: 2px;
+    }
+
+    .age-groups summary {
+        padding: 9px 13px;
+    }
+
+}
+
+/* Планшет і телефон */
+
+@media (max-width: 900px) {
+
+    header {
+        display: block;
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    header h1,
+    header p {
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 18px;
+    }
+
+}
+/* =========================
+   КНОПКИ СОЦМЕРЕЖ У ШАПЦІ
+========================= */
+
+.header-social {
+    display: inline-flex;
+    gap: 6px;
+    margin: 2px;
+    vertical-align: middle;
+}
+
+header nav a.header-social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 9px 11px;
+    border-radius: 6px;
+
+    color: white;
+    font-size: 14px;
+}
+
+header nav a.youtube-button {
+    background-color: #ff0000;
+}
+
+header nav a.youtube-button:hover {
+    background-color: #c90000;
+    color: white;
+}
+
+header nav a.facebook-button {
+    background-color: #1877f2;
+}
+
+header nav a.facebook-button:hover {
+    background-color: #0d5fc7;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .header-social {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    header nav a.header-social-button {
+        width: auto;
+    }
+
+}
+/* =========================
+   КАРТА МІСЦЯ ТРЕНУВАНЬ
+========================= */
+
+.training-map {
+    height: 360px;
+    overflow: hidden;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.training-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-link-wrapper {
+    margin: 16px 0 0;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .training-map {
+        height: 280px;
+        margin-top: 15px;
+    }
+
+}
+
+/* =========================
+   СОЦІАЛЬНІ КНОПКИ В ШАПЦІ
+========================= */
+
+header {
+    position: relative;
+}
+
+.header-social {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.header-social-button {
+    display: inline-block;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.youtube-button {
+    background: #ff0000;
+}
+
+.facebook-button {
+    background: #1877f2;
+}
+
+.header-social-button:hover {
+    opacity: 0.85;
+}
+
+/* =========================
+   ВИПАДАЮЧЕ МЕНЮ
+========================= */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    padding: 10px 12px;
+}
+
+.dropdown-button:hover {
+    color: #c8f7d0;
+}
+
+/* Випадаючий список */
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    min-width: 130px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+
+    z-index: 1000;
+}
+
+/* Показати меню */
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Пункти U-6 ... U-10 */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #222;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #087f23;
+    color: white;
+}
+
+/* =========================
+   ГОЛОВНЕ МЕНЮ
+   ========================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
+/* Звичайні пункти меню */
+
+nav > a {
+    display: block;
+    padding: 15px 20px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* Наведення */
+
+nav > a:hover {
+    background: #087f23;
+}
+
+
+/* =========================
+   ВИПАДАЮЧІ МЕНЮ
+   ========================= */
+
+.dropdown {
+    position: relative;
+    flex-shrink: 0;
+}
+
+
+/* Кнопка "Вікові групи" / "Турніри" */
+
+.dropdown-button {
+    display: block;
+
+    padding: 15px 20px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+/* Наведення на кнопку */
+
+.dropdown:hover .dropdown-button {
+    background: #087f23;
+}
+
+
+/* =========================
+   ВИПАДАЮЧИЙ СПИСОК
+   ========================= */
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 180px;
+
+    background: white;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+}
+
+
+/* Відкрити список при наведенні */
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Пункти випадаючого меню */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #222;
+    background: #087f23;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* Наведення на пункт */
+
+.dropdown-menu a:hover {
+    background: #087f23;
+    color: white;
+}
+
+/* =========================
+   ОСТАННІ НОВИНИ
+   ========================= */
+
+/*.latest-news {
+    padding: 40px 20px;
+    background-image:url("images/news.jpg");
+}
+
+.latest-news h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px; */
+}
+
+
+/* Контейнер трьох новин */
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Картка новини */
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 300px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+    color: #222;
+
+    border: 2px solid #eeeeee;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Ефект наведення */
+
+.news-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+
+    border-color: #f5c400;
+}
+
+
+/* Дата */
+
+.news-date {
+    font-size: 14px;
+    color: #111;
+
+    margin-bottom: 15px;
+}
+
+
+/* Іконка */
+
+.news-icon {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Заголовок */
+
+.news-card h3 {
+    font-size: 22px;
+
+    margin: 5px 0 15px;
+
+    color: #111;
+}
+
+
+/* Текст */
+
+.news-card p {
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    color: #111;
+
+    margin-bottom: 20px;
+}
+
+
+/* Посилання */
+
+.news-link {
+    margin-top: auto;
+
+    font-weight: bold;
+
+    color: #111;
+
+    transition: color 0.3s ease;
+}
+
+
+.news-card:hover .news-link {
+    color: #d4a900;
+}
+
+
+/* =========================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .news {
+        grid-template-columns: 1fr;
+    }
+
+    .latest-news h2 {
+        font-size: 26px;
+    }
+
+    .news-card {
+        min-height: 250px;
+    }
+
+}
+
+
+/* Турнірна таблиця
+на головній сторінці*/
+
+.u-section-3 {
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  }
+
+.u-section-3 .u-sheet-1 {
+  min-height: 648px;
+}
+
+.u-section-3 .u-text-1 {
+  --animation-custom_in-translate_x: -200px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
+  margin: 60px auto 0;
+}
+
+.u-section-3 .u-table-1 {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.u-table-cell .u-table-cell-3 {
+text-align: left;
+font-weight: bold;
+}
+
+/* =========================================
+   АНІМАЦІЯ БЛОКІВ ПРИ ПРОКРУЧУВАННІ
+   БІЛО-ЗЕЛЕНИЙ СТИЛЬ
+   ========================================= */
+
+/* Загальні налаштування анімованих блоків */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(80px) scale(0.92);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.9s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 80, 30, 0.08);
+}
+
+/* Коли блок з'явився */
+
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+
+    box-shadow:
+        0 12px 35px rgba(0, 100, 40, 0.22);
+}
+
+
+/* =========================================
+   РІЗНІ НАПРЯМКИ
+   ========================================= */
+
+/* Зліва */
+
+.animate-left {
+    opacity: 0;
+    transform: translateX(-180px) scale(0.90);
+}
+
+/* Справа */
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(180px) scale(0.90);
+}
+
+/* Знизу */
+
+.animate-bottom {
+    opacity: 0;
+    transform: translateY(180px) scale(0.90);
+}
+
+/* Зверху */
+
+.animate-top {
+    opacity: 0;
+    transform: translateY(-180px) scale(0.90);
+}
+
+
+/* Фінальний стан */
+
+.animate-left.show,
+.animate-right.show,
+.animate-bottom.show,
+.animate-top.show {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+
+    box-shadow:
+        0 12px 35px rgba(0, 100, 40, 0.22);
+}
+
+
+/* =========================================
+   БІЛО-ЗЕЛЕНИЙ СТИЛЬ
+   ========================================= */
+
+.scroll-animate {
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f7fff8 100%
+    );
+
+    border: 1px solid rgba(8, 127, 35, 0.15);
+}
+
+
+/* Зелена смужка зліва */
+
+.scroll-animate::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background: #087f23;
+
+    border-radius: 10px 0 0 10px;
+}
+
+
+/* Потрібно для зеленої смужки */
+
+.scroll-animate {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Заголовки */
+
+.scroll-animate h2 {
+    color: #087f23;
+}
+
+
+/* Заголовки карток */
+
+.scroll-animate h3 {
+    color: #087f23;
+}
+
+
+/* =========================================
+   ЕФЕКТ ПРИ НАВЕДЕННІ
+   ========================================= */
+
+.scroll-animate.show:hover {
+    transform: translateY(-5px) scale(1.015);
+
+    box-shadow:
+        0 18px 45px rgba(0, 100, 40, 0.30);
+}
+
+
+/* =========================================
+   АНІМАЦІЯ ТРЬОХ КАРТОК
+   ========================================= */
+
+.news .scroll-animate {
+    transition-duration: 0.9s;
+}
+
+
+/* Невелика затримка для другої картки */
+
+.news .scroll-animate:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+
+/* Невелика затримка для третьої */
+
+.news .scroll-animate:nth-child(3) {
+    transition-delay: 0.30s;
+}
+
+
+/* =========================================
+   МОБІЛЬНА ВЕРСІЯ
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .animate-left {
+        transform: translateX(-80px) scale(0.94);
+    }
+
+    .animate-right {
+        transform: translateX(80px) scale(0.94);
+    }
+
+    .animate-bottom {
+        transform: translateY(80px) scale(0.94);
+    }
+
+    .animate-top {
+        transform: translateY(-80px) scale(0.94);
+    }
+
+    .scroll-animate.show:hover {
+        transform: scale(1.01);
+    }
+}
+
+
+/* =========================================
+   ЯКЩО КОРИСТУВАЧ ВИМКНУВ АНІМАЦІЇ
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-animate,
+    .animate-left,
+    .animate-right,
+    .animate-bottom,
+    .animate-top {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
+
+
+
+
+/* =========================================================
+   POLISSYA KIDS U-10 — ПРОФЕСІЙНИЙ ФУТБОЛЬНИЙ REDESIGN
+   Додаємо в кінець файлу, щоб перевизначити старі стилі.
+   ========================================================= */
+
+:root{
+    --pk-green:#087f23;
+    --pk-dark:#023b0f;
+    --pk-deep:#011f09;
+    --pk-light:#eaf7ed;
+    --pk-white:#ffffff;
+    --pk-text:#122018;
+    --pk-muted:#607066;
+    --pk-shadow:0 18px 45px rgba(0,45,15,.14);
+}
+
+*,
+*::before,
+*::after{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--pk-text);
+    background:
+      /*linear-gradient(rgba(240,248,242,.90),rgba(240,248,242,.90)),*/
+      url("images/football-field.jpg") center/cover fixed;
+}
+
+/* ===== ШАПКА ===== */
+header{
+    position:relative;
+    z-index:100;
+    padding:18px 24px 14px;
+    background:linear-gradient(135deg,#011f09 0%,#075f1b 55%,#087f23 100%);
+    box-shadow:0 8px 30px rgba(0,0,0,.22);
+    border-bottom:3px solid #7ee08f;
+}
+
+.header-logo{
+    width:76px;
+    height:76px;
+    filter:drop-shadow(0 5px 12px rgba(0,0,0,.35));
+    transition:transform .35s ease;
+}
+.header-logo:hover{transform:rotate(-4deg) scale(1.06);}
+
+header h1{
+    font-size:clamp(27px,4vw,42px);
+    letter-spacing:.5px;
+    margin:2px 0 5px;
+    text-shadow:0 3px 15px rgba(0,0,0,.35);
+}
+header p{
+    font-size:16px;
+    color:#dff8e4;
+    margin-bottom:18px;
+}
+
+/* ===== МЕНЮ ===== */
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:4px;
+    margin-top:8px;
+}
+nav > a,
+.dropdown-button{
+    position:relative;
+    border:0;
+    background:transparent;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:15px;
+    padding:12px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+nav > a::after,
+.dropdown-button::after{
+    content:"";
+    position:absolute;
+    left:16px;
+    right:16px;
+    bottom:6px;
+    height:2px;
+    background:#8df09e;
+    transform:scaleX(0);
+    transition:transform .25s ease;
+}
+nav > a:hover,
+.dropdown-button:hover{
+    background:rgba(255,255,255,.13);
+    color:#fff;
+    transform:translateY(-2px);
+}
+nav > a:hover::after,
+.dropdown-button:hover::after{transform:scaleX(1);}
+
+.dropdown{position:relative;}
+.dropdown-menu{
+    min-width:180px;
+    padding:8px;
+    border:1px solid rgba(126,224,143,.35);
+    border-radius:12px;
+    background:rgba(2,59,15,.98);
+    box-shadow:0 16px 35px rgba(0,0,0,.3);
+}
+.dropdown-menu a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding:11px 13px;
+    border-radius:8px;
+    transition:.2s;
+}
+
+/*випадаюче меню*/
+.dropdown-menu a:hover{
+    background:#087f23; /*колір меню*/
+    background:#8df09e; /*колір при наведені мишки */
+    transform:translateX(4px);
+}
+
+/* ===== HERO ===== */
+.hero{
+    position:relative;
+    min-height:680px;
+    margin:0 auto 40px;
+    max-width:1250px;
+    border-radius:0 0 28px 28px;
+    overflow:hidden;
+    background:
+      linear-gradient(90deg,rgba(0,25,8,.86) 0%,rgba(0,35,11,.60) 48%,rgba(0,20,6,.28) 100%),
+      url("images/team.jpg") center/cover no-repeat;
+    box-shadow:0 22px 55px rgba(0,35,10,.28);
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 78% 28%,rgba(126,224,143,.22),transparent 30%),
+      linear-gradient(180deg,transparent 65%,rgba(0,20,6,.45));
+    pointer-events:none;
+}
+.hero-overlay{display:none;}
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+    padding:70px clamp(28px,7vw,90px);
+    text-align:left;
+}
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    padding:8px 14px;
+    margin-bottom:20px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    color:#dfffe5;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+.logo{
+    width:125px;
+    height:125px;
+    object-fit:contain;
+    display:block;
+    margin:0 0 20px;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.4));
+}
+.hero h2{
+    margin:0 0 15px;
+    color:#fff;
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.03;
+    text-shadow:0 5px 25px rgba(0,0,0,.45);
+}
+.hero p{
+    max-width:610px;
+    margin:0 0 28px;
+    color:#e8f8eb;
+    font-size:clamp(17px,2vw,22px);
+    line-height:1.55;
+}
+.hero-buttons{justify-content:flex-start;gap:12px;}
+.hero-button{
+    border-radius:10px;
+    padding:14px 24px;
+    border:2px solid #fff;
+    font-size:15px;
+    box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.hero-button-primary{
+    background:#fff;
+    color:var(--pk-green);
+}
+.hero-button-primary:hover{
+    background:#8df09e;
+    color:#023b0f;
+    transform:translateY(-4px);
+}
+.hero-button-outline{
+    background:rgba(0,0,0,.08);
+    color:#fff;
+}
+.hero-button-outline:hover{
+    background:var(--pk-green);
+    color:#fff;
+    transform:translateY(-4px);
+}
+.hero-scroll{
+    position:absolute;
+    right:28px;
+    bottom:28px;
+    z-index:2;
+    color:#dfffe5;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+.hero-scroll span{
+    display:block;
+    text-align:center;
+    font-size:24px;
+    line-height:1;
+    animation:pk-bounce 1.6s infinite;
+}
+@keyframes pk-bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(7px)}
+}
+
+/* ===== ОСНОВНІ СЕКЦІЇ ===== */
+main{
+    max-width:1250px;
+    margin:0 auto;
+    padding:10px 24px 45px;
+}
+main > section:not(.hero){
+    position:relative;
+    overflow:hidden;
+    /*margin:0 0 30px;*/
+    padding:38px clamp(22px,4vw,48px);
+    border:1px solid rgba(8,127,35,.10);
+    border-radius:20px;
+    /*background:rgba(255,255,255,.96);*/
+    box-shadow:var(--pk-shadow);
+}
+main > section:not(.hero)::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:5px;
+    background:linear-gradient(180deg,#087f23,#7ee08f);
+}
+section h2{
+    color:#082611;
+    font-size:clamp(25px,3vw,36px);
+    margin-bottom:20px;
+}
+.section-kicker{
+    margin-bottom:8px;
+    color:#000000
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2.2px;
+}
+
+/* ===== ТАБЛИЦЯ ===== */
+.u-section-3{
+    background:linear-gradient(145deg,#fff,#f1faf3)!important;
+}
+.u-section-3 .u-sheet{max-width:1100px;margin:auto;}
+.u-section-3 h2{
+    text-align:left!important;
+    font-weight:900;
+    color:#082611!important;
+}
+.u-table-responsive{
+    border-radius:15px;
+    overflow:auto;
+    box-shadow:0 10px 30px rgba(0,45,15,.10);
+}
+.u-table-entity{
+    background:#fff;
+}
+.u-table-entity td{
+    border-color:#dcebe0!important;
+    transition:.2s ease;
+}
+.u-table-entity tbody tr:first-child{
+    background:#075c1a;
+    color:#fff;
+}
+.u-table-entity tbody tr:not(:first-child):hover{
+    background:#eaf7ed;
+    transform:scale(1.005);
+}
+.u-table-entity td:nth-child(2){
+    font-weight:700;
+    text-align:left;
+}
+
+/* ===== ПРО КОМАНДУ ===== */
+.team-intro{
+    background:linear-gradient(135deg,#ffffff 0%,#effaf1 100%)!important;
+}
+.team-intro p{
+    max-width:850px;
+    color:#425148;
+    font-size:17px;
+    line-height:1.75;
+}
+.team-intro .green-button{
+    margin-top:10px;
+}
+
+/* ===== ДОСЯГНЕННЯ ===== */
+.achievements-section{background:linear-gradient(145deg,#fff,#f4fbf5)!important;}
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+.achievement{
+    position:relative;
+    padding:28px 22px;
+    border:1px solid #dcebe0;
+    border-top:0;
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(0,45,15,.08);
+    overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease;
+}
+.achievement::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;
+    height:5px;
+    background:linear-gradient(90deg,#087f23,#8df09e);
+}
+.achievement:hover{
+    transform:translateY(-9px) rotateX(2deg);
+    box-shadow:0 18px 38px rgba(0,75,25,.18);
+}
+.achievement-icon{
+    min-height:35px;
+    font-size:48px;
+}
+.achievement h3{font-size:18px;line-height:1.35;}
+.achievement p{
+    margin:10px 0 0;
+    color:var(--pk-green);
+    font-size:24px;
+    font-weight:900;
+}
+
+/* ===== ТУРНІРИ / НОВИНИ ===== */
+.news-section-head{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:20px;
+    margin:35px 0 18px;
+}
+.news-section-head h2{margin:0;}
+.news-head-line{
+    flex:1;
+    max-width:420px;
+    height:2px;
+    background:linear-gradient(90deg,#087f23,transparent);
+}
+.news{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+.news-card{
+    position:relative;
+    display:block;
+    min-height:230px;
+    padding:27px;
+    border:1px solid #dbe9df;
+    border-left:0;
+    border-radius:17px;
+    background:linear-gradient(145deg,#fff,#f1faf3);
+    color:var(--pk-text);
+    text-decoration:none;
+    box-shadow:0 9px 26px rgba(0,45,15,.08);
+    overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.news-card::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:5px;
+    background:#087f23;
+}
+.news-card::after{
+    content:"↗";
+    position:absolute;
+    right:22px;
+    bottom:18px;
+    color:#087f23;
+    font-size:26px;
+    opacity:.35;
+    transition:.3s;
+}
+.news-card:hover{
+    transform:translateY(-10px);
+    border-color:#8bd99a;
+    box-shadow:0 20px 42px rgba(0,75,25,.17);
+}
+.news-card:hover::after{opacity:1;transform:translate(4px,-4px);}
+.news-card h3{
+    margin:13px 0 10px;
+    color:#075c1a;
+    font-size:22px;
+}
+.news-card p{color:#55625a;line-height:1.6;}
+.news-date{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#e5f6e9;
+    color:#075c1a;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* ===== CTA ===== */
+.media-cta{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    background:linear-gradient(135deg,#023b0f,#087f23)!important;
+    color:#fff;
+}
+.media-cta::before{display:none;}
+.media-cta-icon{
+    width:76px;height:76px;
+    display:grid;place-items:center;
+    flex:0 0 76px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:20px;
+    background:rgba(255,255,255,.12);
+    font-size:35px;
+}
+.media-cta .section-kicker{color:#9bf0aa;}
+.media-cta h2{color:#fff;margin:4px 0 8px;}
+.media-cta p{margin:0;color:#d9f4df;line-height:1.6;}
+.media-cta-content{flex:1;}
+.media-cta-button{
+    flex:0 0 auto;
+    background:#fff;
+    color:#075c1a;
+    border-radius:10px;
+    font-weight:900;
+}
+.media-cta-button:hover{
+    background:#8df09e;
+    color:#023b0f;
+}
+
+/* ===== ЗАГАЛЬНІ КНОПКИ ===== */
+.green-button{
+    border:0;
+    background:linear-gradient(135deg,#087f23,#075c1a);
+    border-radius:10px;
+    box-shadow:0 8px 18px rgba(8,127,35,.22);
+}
+.green-button:hover{
+    background:linear-gradient(135deg,#0a9630,#087f23);
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(8,127,35,.30);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    margin-top:0;
+    padding:35px 24px;
+    background:linear-gradient(135deg,#011f09,#075c1a);
+    border-top:3px solid #7ee08f;
+}
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+}
+.footer-brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+.footer-brand img{
+    width:58px;height:58px;
+    object-fit:contain;
+}
+.footer-brand strong{
+    display:block;
+    color:#fff;
+    font-size:20px;
+}
+.footer-brand span{
+    display:block;
+    color:#bfe8c7;
+    font-size:13px;
+    margin-top:3px;
+}
+footer p{color:#bfe8c7;font-size:13px;}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.scroll-animate{
+    opacity:0;
+    transform:translate3d(0,55px,0) scale(.98);
+    transition:opacity .8s ease,transform .85s cubic-bezier(.2,.75,.25,1),box-shadow .7s ease;
+    will-change:opacity,transform;
+}
+.scroll-animate.animate-left{transform:translate3d(-80px,0,0) scale(.98);}
+.scroll-animate.animate-right{transform:translate3d(80px,0,0) scale(.98);}
+.scroll-animate.animate-top{transform:translate3d(0,-60px,0) scale(.98);}
+.scroll-animate.animate-bottom{transform:translate3d(0,65px,0) scale(.98);}
+.scroll-animate.show{
+    opacity:1;
+    transform:translate3d(0,0,0) scale(1);
+}
+.scroll-animate.show:hover{
+    box-shadow:0 22px 50px rgba(0,70,22,.17);
+}
+
+/* ===== МОБІЛЬНИЙ ===== */
+@media(max-width:900px){
+    .hero{min-height:590px;border-radius:0 0 20px 20px;}
+    .hero-content{padding:55px 30px;}
+    .achievements,.news{grid-template-columns:1fr;}
+    .news-card{min-height:190px;}
+    .media-cta{align-items:flex-start;flex-wrap:wrap;}
+    .media-cta-button{width:100%;text-align:center;}
+}
+@media(max-width:600px){
+    header{padding:15px 12px 10px;}
+    .header-logo{width:62px;height:62px;}
+    header h1{font-size:25px;}
+    header p{font-size:13px;}
+    nav{gap:2px;}
+    nav > a,.dropdown-button{font-size:13px;padding:10px 11px;}
+    .hero{
+        min-height:560px;
+        border-radius:0 0 16px 16px;
+        background-position:58% center;
+    }
+    .hero-content{padding:45px 22px;}
+    .hero-badge{font-size:10px;letter-spacing:1px;}
+    .logo{width:92px;height:92px;}
+    .hero h2{font-size:38px;}
+    .hero p{font-size:16px;}
+    .hero-buttons{align-items:stretch;flex-direction:column;}
+    .hero-button{width:100%;text-align:center;}
+    .hero-scroll{display:none;}
+    main{padding:8px 10px 30px;}
+    main > section:not(.hero){padding:28px 18px;border-radius:15px;}
+    .u-section-3{padding:25px 12px!important;}
+    .news-section-head{align-items:flex-start;}
+    .news-head-line{display:none;}
+    .media-cta-icon{width:60px;height:60px;flex-basis:60px;}
+    .footer-brand{text-align:left;justify-content:flex-start;}
+    .footer-brand strong{font-size:17px;}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+    .scroll-animate{
+        opacity:1!important;
+        transform:none!important;
+    }
+}
+
+
+/* =========================================================
+   NEXT STEP — PROFESSIONAL MATCH / STATS BLOCKS
+   ========================================================= */
+.stats-modern{
+    max-width:1180px;
+    margin:-42px auto 38px;
+    position:relative;
+    z-index:5;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:rgba(255,255,255,.97);
+    border:1px solid rgba(19,122,63,.12);
+    border-radius:22px;
+    box-shadow:0 18px 45px rgba(16,60,35,.16);
+    overflow:hidden;
+}
+.stat-modern{
+    min-height:105px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    position:relative;
+    transition:transform .3s ease,background .3s ease;
+}
+.stat-modern:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:22px;
+    bottom:22px;
+    width:1px;
+    background:#dce9df;
+}
+.stat-modern:hover{transform:translateY(-4px);background:#f4faf5;}
+.stat-modern strong{font-size:29px;line-height:1;color:#137a3f;font-weight:900;}
+.stat-modern span{font-size:12px;color:#66736b;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+
+.next-match-modern{
+    max-width:1180px!important;
+    margin:0 auto 42px;
+    padding:42px!important;
+    border-radius:26px!important;
+    color:##087f23;
+    background:linear-gradient(135deg,#0d3d24 0%,#137a3f 55%,#1d9a55 100%);
+    box-shadow:0 22px 55px rgba(13,61,36,.24);
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+.next-match-modern::before{
+    content:"";
+    position:absolute;
+    width:330px;height:330px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:50%;
+    right:-110px;top:-170px;
+}
+.next-match-modern::after{
+    content:"";
+    position:absolute;
+    width:230px;height:230px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+    left:-100px;bottom:-140px;
+}
+.next-match-modern>*{position:relative;z-index:1;}
+.next-match-label{font-size:12px;font-weight:800;letter-spacing:2px;opacity:.78;margin-bottom:8px;}
+.next-match-modern h2{margin:0 0 28px!important;color:#fff!important;font-size:38px!important;}
+.match-modern-grid{
+    display:grid;
+    grid-template-columns:1fr 150px 1fr;
+    align-items:center;
+    gap:24px;
+    max-width:800px;
+    margin:0 auto 25px;
+}
+.match-team-modern{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.match-team-modern img,.opponent-placeholder{
+    width:105px;height:105px;object-fit:contain;
+    margin-bottom:8px;
+}
+.opponent-placeholder{
+    display:grid;place-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    font-size:42px;
+}
+.match-team-modern strong{font-size:20px;}
+.match-team-modern span{font-size:12px;opacity:.72;text-transform:uppercase;letter-spacing:1px;}
+.match-vs-modern{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.match-vs-modern span{font-size:32px;font-weight:900;letter-spacing:2px;}
+.match-vs-modern small{font-size:10px;letter-spacing:2px;padding:6px 10px;border:1px solid rgba(255,255,255,.28);border-radius:999px;}
+.match-info-modern{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 25px;margin-bottom:25px;font-size:14px;opacity:.9;}
+.next-match-modern .green-button{display:inline-flex;background:#fff;color:#0d5d30;box-shadow:0 8px 20px rgba(0,0,0,.12);}
+.next-match-modern .green-button:hover{background:#f0fff4;color:#0d5d30;}
+
+@media(max-width:800px){
+    .stats-modern{grid-template-columns:repeat(2,1fr);margin:-25px 14px 28px;border-radius:18px;}
+    .stat-modern:nth-child(2)::after{display:none;}
+    .stat-modern:nth-child(-n+2){border-bottom:1px solid #dce9df;}
+    .next-match-modern{margin:0 10px 30px;padding:30px 18px!important;}
+    .next-match-modern h2{font-size:30px!important;}
+    .match-modern-grid{grid-template-columns:1fr;gap:16px;}
+    .match-vs-modern{flex-direction:row;justify-content:center;}
+    .match-team-modern img,.opponent-placeholder{width:80px;height:80px;}
+    .match-info-modern{flex-direction:column;gap:8px;}
+}
+
+@media(max-width:430px){
+    .stats-modern{margin-left:8px;margin-right:8px;}
+    .stat-modern{min-height:88px;}
+    .stat-modern strong{font-size:23px;}
+    .stat-modern span{font-size:10px;text-align:center;}
+}
+
+/* =========================================
+   СОЦМЕРЕЖІ НАД ГОЛОВНИМ МЕНЮ
+   ========================================= */
+
+.header-social-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 8px;
+}
+
+.header-social-top a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Facebook 
+.header-social-top a:first-child {
+    background: #1877f2;
+}
+
+/* YouTube 
+.header-social-top a:last-child {
+    background: #ff0000;
+}*/
+
+/* Hover */
+.header-social-top a:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* Facebook hover 
+.header-social-top a:first-child:hover {
+    background: #0d65d9;
+}
+
+/* YouTube hover 
+.header-social-top a:last-child:hover {
+    background: #d90000;
+}*/
+
+/* Телефон */
+@media (max-width: 600px) {
+
+    .header-social-top {
+        margin: 10px 0 8px;
+        gap: 10px;
+    }
+
+    .header-social-top a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+}
+
+/* =================================
+   ГАЛЕРЕЯ
+================================= */
+
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    padding: 30px 0;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Збільшення при наведенні */
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =================================
+   ВЕЛИКЕ ФОТО
+================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    padding: 30px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =================================
+   КНОПКА ЗАКРИТТЯ
+================================= */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 15px;
+    right: 30px;
+
+    color: white;
+
+    font-size: 50px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    z-index: 10000;
+
+    transition: 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #ffd400;
+    transform: scale(1.2);
+}
+
+
+/* =================================
+   ПЛАНШЕТ
+================================= */
+
+@media (max-width: 900px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 200px;
+    }
+}
+
+
+/* =================================
+   ТЕЛЕФОН
+================================= */
+
+@media (max-width: 500px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+}
+
+/* Виправлення секцій about.html на телефонах */
+@media (max-width: 768px) {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        overflow-x: clip;
+    }
+
+    main {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    main > section:not(.hero),
+    .team-photo,
+    .team-intro {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .team-intro {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .team-intro h2 {
+        font-size: clamp(24px, 7vw, 28px);
+        overflow-wrap: anywhere;
+    }
+
+    .team-intro p {
+        max-width: none;
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    /* На телефоні прибираємо сильний боковий зсув анімації */
+    .scroll-animate.animate-left,
+    .scroll-animate.animate-right {
+        transform: translate3d(0, 28px, 0) scale(0.99);
+    }
+
+    .scroll-animate.show {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
