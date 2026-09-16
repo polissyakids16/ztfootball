@@ -3951,7 +3951,7 @@ footer p{color:#bfe8c7;font-size:13px;}
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     margin: 12px 0 8px;
 }
 
@@ -3976,15 +3976,15 @@ footer p{color:#bfe8c7;font-size:13px;}
         background 0.3s ease;
 }
 
-/* Facebook */
+/* Facebook 
 .header-social-top a:first-child {
     background: #1877f2;
 }
 
-/* YouTube */
+/* YouTube 
 .header-social-top a:last-child {
     background: #ff0000;
-}
+}*/
 
 /* Hover */
 .header-social-top a:hover {
@@ -3992,15 +3992,15 @@ footer p{color:#bfe8c7;font-size:13px;}
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
 }
 
-/* Facebook hover */
+/* Facebook hover 
 .header-social-top a:first-child:hover {
     background: #0d65d9;
 }
 
-/* YouTube hover */
+/* YouTube hover 
 .header-social-top a:last-child:hover {
     background: #d90000;
-}
+}*/
 
 /* Телефон */
 @media (max-width: 600px) {
