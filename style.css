@@ -4730,25 +4730,25 @@ section:has(.achievements) > h2::after {
         0 10px 25px rgba(11,61,29,0.22);
 }
 
-.achievement-icon::before {
+/*.achievement-icon::before {
     content: "🏆";
 
     font-size: 32px;
 
     filter:
         drop-shadow(0 3px 5px rgba(0,0,0,0.25));
-}
+}*/
 
 
 /* Другі та треті картки */
 
-.achievement:nth-child(2) .achievement-icon::before {
+/*.achievement:nth-child(2) .achievement-icon::before {
     content: "🥈";
 }
 
 .achievement:nth-child(3) .achievement-icon::before {
     content: "🏅";
-}
+}*/
 
 
 /* =========================================================
