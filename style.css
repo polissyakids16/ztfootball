@@ -1,5 +1,5 @@
 /* ================================================================
-   POLISSYA KIDS 16L U-10 — CSS 2.0
+   POLISSYA KIDS 16L U-10 — CSS 2.2
    Сучасний професійний футбольний стиль
    Збережено сумісність з існуючими HTML/JS класами
    ================================================================ */
@@ -38,7 +38,7 @@ body {
     min-width: 320px;
     font-family: 'Inter', Arial, sans-serif;
     color: var(--text);
-    background: linear-gradient(180deg, #f7faf7 0%, #edf3ee 100%);
+    background: linear-gradient(180deg, #f7faf7 0%, #edf3ee 100%);*/
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -602,7 +602,7 @@ section h3 { color: var(--green-700); }
     position: relative;
     text-align: center;
     background: linear-gradient(135deg, var(--green-950), var(--green-800));
-    /*color: var(--white);*/
+    color: #35c759;
     border: 0;
     overflow: hidden;
 }
@@ -642,7 +642,7 @@ section h3 { color: var(--green-700); }
 /* ========================= ПРО КОМАНДУ ========================= */
 .page-title { text-align:center; }
 .page-title h2 { font-size:clamp(28px,4vw,42px); }
-.team-photo { width:100%; max-width:980px; height:min(560px, 60vw); min-height:280px; display:block; margin:28px auto; object-fit:cover; object-position:center top; border-radius:18px; box-shadow:var(--shadow-md); }
+.team-photo { width:100%; /*max-width:980px;*/ height:min(560px, 60vw); min-height:280px; display:block; margin:28px auto; object-fit:cover; object-position:center top; border-radius:18px; box-shadow:var(--shadow-md); }
 .team-photo img { width:100%; display:block; }
 .team-intro { background:linear-gradient(145deg,#fff,#f2f7f3); }
 .team-intro p { max-width:900px; margin:0 auto 16px; color:#526058; font-size:16px; line-height:1.75; }
@@ -1764,3 +1764,4490 @@ header nav .dropdown-menu {
     }
 
 }
+
+/* ================================================================
+   POLISSYA KIDS 16L U-10 — CSS 2.2
+   ПРОФЕСІЙНЕ ДОПРАЦЮВАННЯ HERO / MATCH CENTER / CARDS
+   Додано поверх CSS 2.1 без зміни HTML / JS
+   ================================================================ */
+
+.hero {
+    isolation: isolate;
+    min-height: clamp(560px, 72vh, 720px);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 28px 80px rgba(3,30,13,.24),
+                0 0 0 1px rgba(200,244,58,.04);
+}
+.hero::before {
+    background: linear-gradient(90deg,
+        rgba(2,18,8,.96) 0%,
+        rgba(2,25,11,.78) 38%,
+        rgba(2,25,11,.34) 72%,
+        rgba(2,25,11,.16) 100%);
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, transparent 0 48%,
+            rgba(200,244,58,.08) 48.1%, transparent 48.3%),
+        linear-gradient(0deg, transparent 0 76%,
+            rgba(255,255,255,.06) 76.1%, transparent 76.3%),
+        radial-gradient(circle at 82% 28%,
+            rgba(200,244,58,.13), transparent 24%);
+    mix-blend-mode: screen;
+}
+.hero-slideshow::after {
+    background:
+        linear-gradient(90deg, rgba(2,18,8,.74) 0%,
+            rgba(2,18,8,.38) 48%, rgba(2,18,8,.18) 100%),
+        linear-gradient(0deg, rgba(2,18,8,.42), transparent 52%);
+}
+.hero-content {
+    max-width: 860px;
+    padding: clamp(36px, 7vw, 78px);
+}
+.hero-badge {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,.18);
+}
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: -80%;
+    width: 45%;
+    background: linear-gradient(90deg, transparent,
+        rgba(255,255,255,.34), transparent);
+    transform: skewX(-20deg);
+    animation: heroBadgeShine 4.5s ease-in-out infinite;
+}
+@keyframes heroBadgeShine {
+    0%, 58%, 100% { left: -80%; }
+    72% { left: 135%; }
+}
+.hero .logo {
+    width: clamp(105px, 13vw, 150px);
+    height: clamp(105px, 13vw, 150px);
+    margin-bottom: 24px;
+    filter: drop-shadow(0 18px 32px rgba(0,0,0,.45))
+            drop-shadow(0 0 22px rgba(200,244,58,.10));
+    transition: transform .35s var(--ease), filter .35s;
+}
+.hero:hover .logo {
+    transform: translateY(-3px) scale(1.025);
+}
+.hero h2 {
+    max-width: 820px;
+    text-shadow: 0 5px 22px rgba(0,0,0,.35);
+}
+.hero p {
+    color: rgba(255,255,255,.86);
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.hero-buttons { gap: 13px; }
+.hero-button, .green-button, .media-cta-button {
+    position: relative;
+    overflow: hidden;
+}
+.hero-button::after, .green-button::after, .media-cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 25%,
+        rgba(255,255,255,.18) 50%, transparent 75%);
+    transform: translateX(-130%);
+    transition: transform .6s var(--ease);
+    pointer-events: none;
+}
+.hero-button:hover::after, .green-button:hover::after,
+.media-cta-button:hover::after {
+    transform: translateX(130%);
+}
+.hero-scroll { z-index: 5; opacity: .85; }
+
+/* Заголовки секцій */
+section h2, .u-section-3 h2 { position: relative; }
+section h2::after, .u-section-3 h2::after {
+    content: '';
+    display: block;
+    width: 54px;
+    height: 4px;
+    margin-top: 10px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--green-600), var(--lime));
+}
+
+/* Статистика */
+.statistics, .stats-modern { gap: 14px; }
+.stat, .stat-modern {
+    min-height: 132px;
+    background: linear-gradient(145deg, rgba(7,61,25,.98),
+        rgba(8,127,35,.96));
+    border-color: rgba(200,244,58,.12);
+    box-shadow: 0 14px 34px rgba(3,30,13,.14),
+                inset 0 1px 0 rgba(255,255,255,.06);
+}
+.stat::before, .stat-modern::before {
+    width: 120px; height: 120px;
+    right: -48px; top: -58px;
+    background: radial-gradient(circle,
+        rgba(200,244,58,.18), rgba(200,244,58,0) 68%);
+}
+.stat::after, .stat-modern::after {
+    content: '';
+    position: absolute;
+    left: 18px; bottom: 16px;
+    width: 28px; height: 3px;
+    border-radius: 99px;
+    background: var(--lime);
+    opacity: .8;
+}
+.stat:hover, .stat-modern:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 44px rgba(3,30,13,.20),
+                0 0 0 1px rgba(200,244,58,.10);
+}
+.stat strong, .stat-modern strong {
+    font-size: clamp(32px, 4vw, 40px);
+}
+
+/* Match Center */
+.next-match-modern {
+    border: 1px solid rgba(200,244,58,.12) !important;
+    box-shadow: 0 24px 65px rgba(3,30,13,.24),
+                inset 0 1px 0 rgba(255,255,255,.05);
+}
+.next-match-modern::before {
+    width: 420px; height: 420px;
+    right: -190px; top: -220px;
+    background: radial-gradient(circle,
+        rgba(200,244,58,.14), rgba(200,244,58,0) 68%);
+}
+.next-match-modern::after {
+    width: 320px; height: 320px;
+    left: -170px; bottom: -210px;
+    border-color: rgba(200,244,58,.10);
+}
+.next-match-modern h2 { margin-bottom: 8px; }
+.next-match-label { letter-spacing: .20em; }
+.match-modern-grid, .next-match-teams {
+    margin: 32px auto 25px;
+}
+.match-team-modern {
+    padding: 18px 14px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    background: rgba(255,255,255,.045);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+.match-team-modern img, .opponent-logo, .opponent-placeholder {
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+}
+.match-team-modern strong {
+    font-family: 'Oswald', sans-serif;
+    font-size: 21px;
+}
+.match-vs-modern { min-width: 72px; }
+.match-vs-modern span {
+    display: grid;
+    place-items: center;
+    width: 64px; height: 64px;
+    border: 1px solid rgba(200,244,58,.30);
+    border-radius: 50%;
+    background: rgba(200,244,58,.08);
+    box-shadow: 0 0 28px rgba(200,244,58,.08);
+}
+
+/* Новини та картки */
+.news-card, .tournament-card, .finished-tournament,
+.achievement, .value-card, .contact-card {
+    transition: transform .3s var(--ease),
+                box-shadow .3s var(--ease), border-color .3s;
+}
+.news-card {
+    min-height: 210px;
+    background: linear-gradient(145deg, rgba(255,255,255,.98),
+        rgba(239,246,240,.98));
+    box-shadow: 0 10px 28px rgba(3,30,13,.07);
+}
+.news-card:hover, .tournament-card:hover,
+.finished-tournament:hover, .achievement:hover {
+    border-color: rgba(8,127,35,.20);
+}
+.news-card h3, .news-card p, .news-link, .news-date {
+    position: relative;
+    z-index: 1;
+}
+.news-link {
+    align-items: center;
+    gap: 7px;
+}
+.news-link::after {
+    content: '→';
+    transition: transform .2s var(--ease);
+}
+.news-card:hover .news-link::after { transform: translateX(4px); }
+
+/* Картки гравців */
+.player-card {
+    position: relative;
+    border-color: rgba(7,61,25,.10);
+    box-shadow: 0 12px 30px rgba(3,30,13,.09);
+}
+.player-card::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 4px;
+    z-index: 2;
+    background: linear-gradient(90deg, var(--green-700),
+        var(--lime), var(--green-500));
+    transform: scaleX(.35);
+    transform-origin: center;
+    transition: transform .35s var(--ease);
+}
+.player-card:hover::before { transform: scaleX(1); }
+.player-card img {
+    background: radial-gradient(circle at 50% 35%, #ffffff 0%,
+        #f1f6f2 58%, #e4eee6 100%);
+}
+
+/* Захист фото */
+.team-photo {
+    object-position: center 22%;
+    background: var(--surface);
+}
+.player-profile-photo img { object-position: center top; }
+
+/* Галерея */
+.gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+.gallery-item {
+    height: 230px;
+    border: 1px solid rgba(7,61,25,.10);
+    box-shadow: 0 10px 28px rgba(3,30,13,.09);
+}
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        rgba(3,21,10,.02), rgba(3,21,10,.22));
+    opacity: 0;
+    transition: opacity .3s;
+}
+.gallery-item:hover::before { opacity: 1; }
+
+/* Фокус клавіатури */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+    outline: 3px solid rgba(200,244,58,.75);
+    outline-offset: 3px;
+}
+
+/* Адаптивність 2.2 */
+@media (max-width: 1000px) {
+    .hero { min-height: 620px; }
+    .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+    .hero { min-height: 590px; }
+    .hero::after {
+        background:
+            radial-gradient(circle at 85% 20%,
+                rgba(200,244,58,.10), transparent 30%),
+            linear-gradient(0deg, rgba(2,18,8,.20), transparent 55%);
+    }
+    .hero-content { padding: 30px 20px 76px; }
+    .hero .logo { width: 100px; height: 100px; }
+    .hero h2 { max-width: 100%; }
+    .match-team-modern { padding: 14px 10px; }
+    .match-vs-modern span { width: 56px; height: 56px; font-size: 28px; }
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .gallery-item { height: 210px; }
+}
+@media (max-width: 560px) {
+    .hero { min-height: 550px; }
+    .hero-badge { margin-bottom: 14px; font-size: 10px; }
+    .hero .logo {
+        width: 88px; height: 88px; margin-bottom: 18px;
+    }
+    .hero h2 { font-size: clamp(31px, 10.5vw, 48px); }
+    .hero p { font-size: 15px; }
+    .stat, .stat-modern { min-height: 108px; }
+    .stat strong, .stat-modern strong { font-size: 30px; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .gallery-item { height: 180px; }
+}
+
+/* =========================================================
+   POLISSYA KIDS 16L U-10
+   HERO 2.3 — PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+/* ---------- HERO ОСНОВА ---------- */
+
+.hero {
+    position: relative;
+    min-height: 760px;
+    height: 82vh;
+    max-height: 900px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    background: #07140d;
+}
+
+/* ---------- ФОТОСЛАЙДЕР ---------- */
+
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transform: scale(1.04);
+
+    transition:
+        opacity 1.5s ease-in-out,
+        transform 10s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1.0);
+}
+
+/* ---------- ПРОФЕСІЙНЕ ЗАТЕМНЕННЯ ---------- */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 12, 7, 0.94) 0%,
+            rgba(2, 15, 9, 0.78) 28%,
+            rgba(2, 15, 9, 0.42) 58%,
+            rgba(2, 12, 7, 0.68) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.55) 0%,
+            transparent 35%,
+            rgba(0, 0, 0, 0.68) 100%
+        );
+}
+
+/* ---------- ДЕКОРАТИВНА ЛІНІЯ ---------- */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 42%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #35c759,
+        rgba(53, 199, 89, 0)
+    );
+
+    z-index: 2;
+}
+
+/* ---------- HERO CONTENT ---------- */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: min(1180px, 92%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-top: 40px;
+
+    animation: heroContentIn 1.1s ease-out both;
+}
+
+@keyframes heroContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- BADGE ---------- */
+
+.hero-badge {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 22px;
+    padding: 9px 18px;
+
+    color: #ffffff;
+    background: rgba(35, 178, 78, 0.16);
+
+    border-left: 4px solid #35c759;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.20);
+}
+
+/* ---------- ЛОГОТИП ---------- */
+
+.hero-content .logo {
+    width: 145px;
+    height: 145px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 12px 25px rgba(0,0,0,0.55));
+
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+/* ---------- ГОЛОВНИЙ ЗАГОЛОВОК ---------- */
+
+.hero-content h2 {
+    max-width: 850px;
+
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 0.98;
+
+    font-weight: 900;
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 5px 25px rgba(0,0,0,0.65);
+}
+
+/* ---------- ОПИС ---------- */
+
+.hero-content > p {
+    max-width: 650px;
+
+    margin: 0 0 32px;
+
+    color: rgba(255,255,255,0.86);
+
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* ---------- КНОПКИ ---------- */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-button {
+    min-width: 190px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 25px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    border-radius: 4px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Основна кнопка */
+
+.hero-button-primary {
+    color: #ffffff;
+
+    background: #25b84b;
+
+    box-shadow:
+        0 10px 30px rgba(37,184,75,0.30);
+}
+
+.hero-button-primary:hover {
+    color: #ffffff;
+
+    background: #32cf5b;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(37,184,75,0.42);
+}
+
+/* Контурна кнопка */
+
+.hero-button-outline {
+    color: #ffffff;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.55);
+
+    backdrop-filter: blur(6px);
+}
+
+.hero-button-outline:hover {
+    color: #ffffff;
+
+    background: rgba(255,255,255,0.15);
+
+    border-color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+/* ---------- ПІДКАЗКА ПРО СКРОЛ ---------- */
+
+.hero-scroll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: rgba(255,255,255,0.72);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.hero-scroll span {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+
+    font-size: 16px;
+}
+
+@keyframes scrollPulse {
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+
+/* =========================================================
+   HERO — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 700px;
+        height: 78vh;
+    }
+
+    .hero-content {
+        width: 88%;
+    }
+
+    .hero-content .logo {
+        width: 125px;
+        height: 125px;
+    }
+
+    .hero-content h2 {
+        max-width: 700px;
+    }
+
+    .hero-slide {
+        background-position: center center;
+    }
+}
+
+
+/* =========================================================
+   HERO — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 690px;
+        height: auto;
+
+        padding: 90px 0 85px;
+    }
+
+    .hero-content {
+        width: 88%;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding-top: 20px;
+    }
+
+    .hero-badge {
+        margin-bottom: 18px;
+
+        padding: 8px 14px;
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-content .logo {
+        width: 105px;
+        height: 105px;
+
+        margin-bottom: 18px;
+    }
+
+    .hero-content h2 {
+        max-width: 100%;
+
+        margin-bottom: 16px;
+
+        font-size: clamp(34px, 10vw, 48px);
+
+        line-height: 1.02;
+
+        letter-spacing: -1px;
+    }
+
+    .hero-content > p {
+        max-width: 430px;
+
+        margin-bottom: 26px;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .hero-button {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 14px 20px;
+    }
+
+    .hero-scroll {
+        bottom: 18px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    /*
+       На телефонах трохи зміщуємо фото,
+       щоб центральна частина команди була видима.
+    */
+
+    .hero-slide {
+        background-position: center center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(2, 12, 7, 0.58) 0%,
+                rgba(2, 12, 7, 0.48) 35%,
+                rgba(2, 12, 7, 0.86) 100%
+            );
+    }
+}
+
+
+/* =========================================================
+   HERO — ДУЖЕ МАЛИЙ ЕКРАН
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+    }
+
+    .hero-content .logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .hero-content,
+    .hero-content .logo,
+    .hero-scroll,
+    .hero-button {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   HERO 2.4 — PROFESSIONAL FOOTBALL DETAILS
+   ========================================================= */
+
+/* ---------- ДЕКОРАТИВНА СІТКА ---------- */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image: linear-gradient(
+        90deg,
+        black 0%,
+        transparent 65%
+    );
+
+    opacity: 0.35;
+
+    z-index: 1;
+}
+
+/* ---------- ЛІВА ДЕКОРАТИВНА ЛІНІЯ ---------- */
+
+.hero-content::before {
+    content: "";
+
+    position: absolute;
+
+    left: -28px;
+    top: 50%;
+
+    width: 3px;
+    height: 210px;
+
+    transform: translateY(-50%);
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #35c759 20%,
+        #35c759 80%,
+        transparent
+    );
+
+    opacity: 0.8;
+}
+
+/* ---------- ДОДАТКОВИЙ ФУТБОЛЬНИЙ АКЦЕНТ ---------- */
+
+.hero-content::after {
+    content: "MATCHDAY • U-10 • 16L";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 18px;
+
+    color: rgba(255,255,255,0.28);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl;
+
+    transform: rotate(180deg);
+
+    pointer-events: none;
+}
+
+/* ---------- ЛЕГКЕ СВІТІННЯ ЛОГО ---------- */
+
+.hero-content .logo {
+    position: relative;
+
+    filter:
+        drop-shadow(0 10px 25px rgba(0,0,0,0.65))
+        drop-shadow(0 0 20px rgba(53,199,89,0.18));
+}
+
+/* ---------- БІЛЬШ ПРОФЕСІЙНА КНОПКА ---------- */
+
+.hero-button-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-button-primary::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+.hero-button-primary:hover::after {
+    left: 140%;
+}
+
+/* ---------- ПЕРЕХІД HERO → STATS ---------- */
+
+.stats-modern {
+    position: relative;
+
+    margin-top: -1px;
+
+    z-index: 5;
+}
+
+/* Тонка верхня футбольна лінія */
+
+.stats-modern::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: min(900px, 80%);
+
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(53,199,89,0.65),
+        transparent
+    );
+}
+
+/* ---------- АДАПТАЦІЯ ---------- */
+
+@media (max-width: 900px) {
+
+    .hero-content::before {
+        left: -18px;
+        height: 160px;
+    }
+
+    .hero-content::after {
+        right: 5px;
+        bottom: 10px;
+
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero::after {
+        background-size: 45px 45px;
+
+        mask-image: linear-gradient(
+            180deg,
+            black,
+            transparent 70%
+        );
+    }
+
+    .hero-content::before {
+        display: none;
+    }
+
+    .hero-content::after {
+        display: none;
+    }
+
+    .stats-modern::before {
+        width: 70%;
+    }
+}
+
+/* =========================================================
+   STATS 2.5 — PROFESSIONAL FOOTBALL STATS
+   ========================================================= */
+
+.stats-modern {
+    position: relative;
+    z-index: 10;
+
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 55px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+
+    background: transparent;
+}
+
+/* ---------- STAT CARD ---------- */
+
+.stat-modern {
+    position: relative;
+    min-height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.98),
+            rgba(245,248,246,0.96)
+        );
+
+    border: 1px solid rgba(20, 40, 28, 0.10);
+    border-bottom: 4px solid #25b84b;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.10),
+        0 2px 8px rgba(0,0,0,0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Верхня зелена лінія */
+
+.stat-modern::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #25b84b;
+
+    transition: width 0.4s ease;
+}
+
+/* Декоративне коло */
+
+.stat-modern::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -45px;
+    bottom: -45px;
+
+    border: 1px solid rgba(37,184,75,0.12);
+    border-radius: 50%;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+/* ---------- HOVER ---------- */
+
+.stat-modern:hover {
+    transform: translateY(-8px);
+
+    border-bottom-color: #35c759;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.16),
+        0 8px 20px rgba(37,184,75,0.12);
+}
+
+.stat-modern:hover::before {
+    width: 100%;
+}
+
+.stat-modern:hover::after {
+    transform: scale(1.35);
+    border-color: rgba(37,184,75,0.22);
+}
+
+/* ---------- VALUE ---------- */
+
+.stat-modern strong {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #12351f;
+
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1;
+
+    font-weight: 950;
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+/* Зелені значення */
+
+.stat-modern:nth-child(1) strong,
+.stat-modern:nth-child(2) strong,
+.stat-modern:nth-child(4) strong {
+    background: linear-gradient(
+        135deg,
+        #168f3a,
+        #35c759
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- LABEL ---------- */
+
+.stat-modern span {
+    position: relative;
+    z-index: 2;
+
+    color: #536158;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+/* ---------- FOOTBALL ICON ---------- */
+
+.stat-modern:nth-child(3) strong {
+    font-size: 42px;
+
+    filter:
+        drop-shadow(0 5px 8px rgba(0,0,0,0.12));
+}
+
+/* ---------- SMALL TOP ACCENT ---------- */
+
+.stat-modern:nth-child(1)::before {
+    width: 35%;
+}
+
+.stat-modern:nth-child(2)::before {
+    width: 45%;
+}
+
+.stat-modern:nth-child(3)::before {
+    width: 55%;
+}
+
+.stat-modern:nth-child(4)::before {
+    width: 65%;
+}
+
+/* ---------- ANIMATION ---------- */
+
+.stat-modern {
+    opacity: 0;
+    transform: translateY(30px);
+
+    animation: statsCardIn 0.7s ease forwards;
+}
+
+.stat-modern:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.stat-modern:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.stat-modern:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.stat-modern:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+@keyframes statsCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .stats-modern {
+        width: 88%;
+        padding: 40px 0;
+
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-modern {
+        min-height: 135px;
+    }
+
+    .stat-modern strong {
+        font-size: 38px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .stats-modern {
+        width: 88%;
+        padding: 30px 0;
+
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-modern {
+        min-height: 120px;
+        padding: 20px 10px;
+    }
+
+    .stat-modern strong {
+        font-size: 32px;
+        margin-bottom: 7px;
+    }
+
+    .stat-modern:nth-child(3) strong {
+        font-size: 34px;
+    }
+
+    .stat-modern span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .stat-modern:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .stats-modern {
+        width: 92%;
+        gap: 9px;
+    }
+
+    .stat-modern {
+        min-height: 110px;
+        padding: 15px 7px;
+    }
+
+    .stat-modern strong {
+        font-size: 28px;
+    }
+
+    .stat-modern:nth-child(3) strong {
+        font-size: 30px;
+    }
+
+    .stat-modern span {
+        font-size: 8px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .stat-modern {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   NEXT MATCH 2.6 — FINAL PROFESSIONAL MATCH CENTER
+   ========================================================= */
+
+.next-match-modern {
+    position: relative;
+    width: min(1180px, 92%);
+    margin: 35px auto 75px;
+    padding: 50px 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(5, 25, 14, 0.98),
+            rgba(9, 48, 25, 0.98)
+        );
+
+    border: 1px solid rgba(53, 199, 89, 0.28);
+    border-top: 4px solid #25b84b;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22),
+        0 0 35px rgba(37, 184, 75, 0.08);
+
+    overflow: hidden;
+}
+
+/* ---------- ДЕКОРАТИВНА СІТКА ---------- */
+
+.next-match-modern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+/* ---------- СВІТЛОВИЙ КРУГ ---------- */
+
+.next-match-modern::after {
+    content: "";
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    right: -190px;
+    top: -190px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(53,199,89,0.12);
+
+    box-shadow:
+        0 0 80px rgba(53,199,89,0.10);
+
+    pointer-events: none;
+}
+
+/* ---------- ВСІ ЕЛЕМЕНТИ ПОВЕРХ ДЕКОРУ ---------- */
+
+.next-match-modern > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.next-match-label {
+    display: table;
+
+    margin: 0 auto 12px;
+    padding: 7px 16px;
+
+    color: #35c759;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 2.5px;
+
+    border: 1px solid rgba(53,199,89,0.35);
+    background: rgba(53,199,89,0.08);
+
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.next-match-modern h2 {
+    margin: 0 0 42px;
+
+    color: #ffffff;
+
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1;
+
+    font-weight: 950;
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+.next-match-modern h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 17px auto 0;
+
+    background: #35c759;
+}
+
+/* =========================================================
+   MATCH GRID
+   ========================================================= */
+
+.match-modern-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 170px 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    max-width: 950px;
+    margin: 0 auto 38px;
+}
+
+/* =========================================================
+   TEAM
+   ========================================================= */
+
+.match-team-modern {
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.match-team-modern:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(53,199,89,0.45);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.18);
+}
+
+/* ---------- LOGO ---------- */
+
+.match-team-modern img {
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(0 8px 15px rgba(0,0,0,0.45))
+        drop-shadow(0 0 15px rgba(53,199,89,0.12));
+
+    transition:
+        transform 0.4s ease;
+}
+
+.match-team-modern:hover img {
+    transform: scale(1.06);
+}
+
+/* ---------- TEAM NAME ---------- */
+
+.match-team-modern strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    line-height: 1.25;
+}
+
+/* ---------- TEAM CATEGORY ---------- */
+
+.match-team-modern > span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #35c759;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   OPPONENT
+   ========================================================= */
+
+.opponent-placeholder {
+    width: 105px;
+    height: 105px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 42px;
+
+    border: 1px dashed rgba(255,255,255,0.25);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.035);
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   VS CENTER
+   ========================================================= */
+
+.match-vs-modern {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.match-vs-modern span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 82px;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 950;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #35c759,
+            #168f3a
+        );
+
+    border: 5px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 10px 30px rgba(37,184,75,0.30),
+        0 0 0 8px rgba(53,199,89,0.05);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.match-vs-modern:hover span {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 15px 40px rgba(37,184,75,0.42),
+        0 0 0 12px rgba(53,199,89,0.06);
+}
+
+.match-vs-modern small {
+    margin-top: 14px;
+
+    color: rgba(255,255,255,0.50);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+/* =========================================================
+   MATCH INFO
+   ========================================================= */
+
+.match-info-modern {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px 35px;
+
+    margin: 0 auto 30px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.10);
+
+    color: rgba(255,255,255,0.72);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.match-info-modern span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+/* =========================================================
+   GREEN BUTTON
+   ========================================================= */
+
+.next-match-modern .green-button {
+    display: flex;
+
+    width: fit-content;
+
+    margin: 0 auto;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 25px;
+
+    color: #ffffff;
+
+    background: #25b84b;
+
+    border: 1px solid #35c759;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 10px 25px rgba(37,184,75,0.20);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.next-match-modern .green-button:hover {
+    color: #35c759;
+
+    background: #35c759;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(37,184,75,0.32);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .next-match-modern {
+        width: 88%;
+        padding: 45px 30px;
+    }
+
+    .match-modern-grid {
+        grid-template-columns: 1fr 120px 1fr;
+        gap: 15px;
+    }
+
+    .match-team-modern {
+        min-height: 210px;
+        padding: 18px 12px;
+    }
+
+    .match-team-modern img,
+    .opponent-placeholder {
+        width: 85px;
+        height: 85px;
+    }
+
+    .match-vs-modern span {
+        width: 70px;
+        height: 70px;
+        font-size: 21px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .next-match-modern {
+        width: 88%;
+        margin: 25px auto 50px;
+        padding: 35px 15px;
+    }
+
+    .next-match-label {
+        font-size: 9px;
+        letter-spacing: 1.8px;
+    }
+
+    .next-match-modern h2 {
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+    .match-modern-grid {
+        grid-template-columns: 1fr 70px 1fr;
+        gap: 7px;
+        margin-bottom: 25px;
+    }
+
+    .match-team-modern {
+        min-height: 175px;
+        padding: 12px 6px;
+    }
+
+    .match-team-modern img,
+    .opponent-placeholder {
+        width: 65px;
+        height: 65px;
+    }
+
+    .opponent-placeholder {
+        font-size: 28px;
+    }
+
+    .match-team-modern strong {
+        font-size: 12px;
+    }
+
+    .match-team-modern > span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .match-vs-modern span {
+        width: 55px;
+        height: 55px;
+
+        font-size: 17px;
+
+        border-width: 3px;
+    }
+
+    .match-vs-modern small {
+        margin-top: 9px;
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .match-info-modern {
+        flex-direction: column;
+        gap: 9px;
+
+        padding-top: 18px;
+
+        font-size: 11px;
+    }
+
+    .next-match-modern .green-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 15px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .next-match-modern *,
+    .next-match-modern {
+        transition: none !important;
+    }
+}
+/* =========================================================
+   NEXT MATCH 2.6 — FULL WIDTH FIX
+   ========================================================= */
+
+.next-match-modern {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Внутрішній контент залишається акуратно по центру */
+
+.next-match-modern .match-modern-grid {
+    width: min(950px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.next-match-modern .match-info-modern {
+    width: 100%;
+}
+
+.next-match-modern .green-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* На телефоні */
+
+@media (max-width: 600px) {
+    .next-match-modern {
+        width: 100% !important;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+/* =========================================================
+   TOURNAMENT TABLE 2.7
+   PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+#block-4 {
+    position: relative;
+    width: 100%;
+    /*padding: 75px 0 85px;*/
+
+    background: #ffffff !important;
+}
+
+/* ---------- ЗАГОЛОВОК ---------- */
+
+#block-4 .u-text-1 {
+    position: relative;
+
+    margin: 0 auto 38px;
+
+    color: #102219 !important;
+
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+
+    font-weight: 900;
+    letter-spacing: -0.5px;
+
+    text-align: center;
+}
+
+#block-4 .u-text-1::after {
+    content: "";
+
+    display: block;
+
+    width: 65px;
+    height: 4px;
+
+    margin: 18px auto 0;
+
+    background: #25b84b;
+}
+
+/* ---------- ПІДЗАГОЛОВОК ---------- */
+
+#block-4 .u-text-1 br + * {
+    color: #25b84b;
+}
+
+/* ---------- КОНТЕЙНЕР ---------- */
+
+#block-4 .u-sheet-1 {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+/* ---------- ТАБЛИЦЯ ---------- */
+
+#block-4 .u-table-1 {
+    width: 100% !important;
+
+    overflow-x: auto;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.10),
+        0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ---------- TABLE ---------- */
+
+#block-4 table {
+    width: 100%;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+/* ---------- HEADER ---------- */
+
+#block-4 table tbody tr:first-child {
+    height: 58px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b3d1d,
+            #145c2b
+        );
+}
+
+#block-4 table tbody tr:first-child td {
+    height: 58px !important;
+
+    padding: 12px 8px;
+
+    color: #ffffff !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+/* Назва команди у заголовку */
+
+#block-4 table tbody tr:first-child td:nth-child(2) {
+    text-align: left;
+}
+
+/* ---------- ROWS ---------- */
+
+#block-4 table tbody tr:not(:first-child) {
+    height: 58px !important;
+
+    background: #ffffff;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#block-4 table tbody tr:not(:first-child):nth-child(even) {
+    background: #f5f8f6;
+}
+
+#block-4 table tbody tr:not(:first-child):hover {
+    background: #eaf7ed;
+
+    box-shadow:
+        inset 5px 0 0 #25b84b;
+}
+
+/* ---------- CELLS ---------- */
+
+#block-4 table tbody tr:not(:first-child) td {
+    height: 58px !important;
+
+    padding: 10px 8px;
+
+    color: #26352c !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-bottom: 1px solid #e3e9e5 !important;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+/* ---------- НАЗВА КОМАНДИ ---------- */
+
+#block-4 table tbody tr:not(:first-child) td:nth-child(2) {
+    color: #15261b !important;
+
+    font-weight: 900;
+
+    text-align: left;
+}
+
+/* ---------- НОМЕР МІСЦЯ ---------- */
+
+#block-4 table tbody tr:not(:first-child) td:first-child {
+    color: #25a947 !important;
+
+    font-size: 16px;
+
+    font-weight: 950;
+}
+
+/* ---------- POLISSYA KIDS ---------- */
+
+#block-4 table tbody tr:nth-child(5) {
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,184,75,0.13),
+            rgba(37,184,75,0.035)
+        ) !important;
+
+    box-shadow:
+        inset 5px 0 0 #25b84b;
+}
+
+#block-4 table tbody tr:nth-child(5) td {
+    color: #12351f !important;
+
+    font-weight: 900;
+}
+
+#block-4 table tbody tr:nth-child(5) td:first-child {
+    color: #168f3a !important;
+}
+
+/* ---------- ОЧКИ ---------- */
+
+#block-4 table tbody tr:not(:first-child) td:last-child {
+    color: #168f3a !important;
+
+    font-size: 16px;
+
+    font-weight: 950;
+}
+
+/* ---------- ВЕРХНІ КУТИ ---------- */
+
+#block-4 table tbody tr:first-child td:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+#block-4 table tbody tr:first-child td:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+/* ---------- НИЖНІЙ РЯД ---------- */
+
+#block-4 table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #block-4 {
+        padding: 55px 0 65px;
+    }
+
+    #block-4 .u-sheet-1 {
+        width: 94%;
+    }
+
+    #block-4 .u-text-1 {
+        margin-bottom: 28px;
+
+        font-size: 26px;
+    }
+
+    #block-4 .u-table-1 {
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #block-4 table {
+        min-width: 720px;
+    }
+
+    #block-4 table tbody tr:first-child td {
+        font-size: 11px;
+    }
+
+    #block-4 table tbody tr:not(:first-child) td {
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    #block-4 .u-text-1 {
+        font-size: 23px;
+    }
+
+    #block-4 table {
+        min-width: 680px;
+    }
+}
+/* =========================================================
+   TEAM INTRO 2.8
+   ПРО КОМАНДУ — PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+.team-intro {
+    position: relative;
+    /*width: min(1180px, 92%);*/
+    margin: 0 auto;
+    padding: 90px 80px 95px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f7faf8 100%
+        );
+
+    border-top: 1px solid #e5ebe7;
+    border-bottom: 1px solid #e5ebe7;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+/* Декоративна зелена лінія зліва */
+
+.team-intro::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 55px;
+    bottom: 55px;
+    width: 5px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #25b84b 15%,
+            #35c759 50%,
+            #168f3a 85%,
+            transparent
+        );
+}
+
+/* Декоративне коло */
+
+.team-intro::after {
+    content: "";
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    right: -170px;
+    top: -150px;
+
+    border: 1px solid rgba(37, 184, 75, 0.12);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 35px rgba(37, 184, 75, 0.025),
+        0 0 0 70px rgba(37, 184, 75, 0.018);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   KICKER
+   ========================================================= */
+
+.team-intro .section-kicker {
+    position: relative;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 18px;
+    padding-left: 15px;
+
+    color: #168f3a;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.team-intro .section-kicker::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform: translateY(-50%);
+
+    background: #25b84b;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 184, 75, 0.12);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.team-intro h2 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 950px;
+
+    margin: 0 0 30px;
+
+    color: #102219;
+
+    font-size: clamp(32px, 4.5vw, 54px);
+    line-height: 1.08;
+
+    font-weight: 950;
+    letter-spacing: -1.5px;
+}
+
+.team-intro h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 4px;
+
+    margin-top: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #25b84b,
+            #35c759
+        );
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.team-intro p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    margin: 0 0 20px;
+
+    color: #526158;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    font-weight: 500;
+}
+
+.team-intro p strong {
+    color: #173b23;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.team-intro .green-button {
+    position: relative;
+    z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 14px;
+
+    min-width: 190px;
+
+    padding: 15px 25px;
+
+    color: #ffffff;
+    background: #25b84b;
+
+    border: none;
+    border-radius: 3px;
+
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 25px rgba(37, 184, 75, 0.22);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.team-intro .green-button::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+.team-intro .green-button:hover {
+    color: #ffffff;
+
+    background: #168f3a;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(37, 184, 75, 0.30);
+}
+
+.team-intro .green-button:hover::after {
+    left: 140%;
+}
+
+
+/* =========================================================
+   DECORATIVE FOOTBALL MARK
+   ========================================================= */
+
+.team-intro {
+    counter-reset: team-section;
+}
+
+.team-intro .section-kicker::after {
+    content: "16L";
+
+    margin-left: 12px;
+
+    color: rgba(16, 34, 25, 0.22);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+   Працює з твоїм існуючим scroll-animate
+   ========================================================= */
+
+.team-intro.scroll-animate {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .team-intro {
+        width: 88%;
+        padding: 70px 55px 75px;
+    }
+
+    .team-intro h2 {
+        font-size: clamp(30px, 5vw, 46px);
+    }
+
+    .team-intro p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .team-intro::after {
+        width: 280px;
+        height: 280px;
+
+        right: -150px;
+        top: -130px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .team-intro {
+        width: 88%;
+
+        margin: 0 auto;
+
+        padding: 55px 25px 60px;
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,0.07);
+    }
+
+    .team-intro::before {
+        top: 35px;
+        bottom: 35px;
+        width: 4px;
+    }
+
+    .team-intro .section-kicker {
+        margin-bottom: 15px;
+
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .team-intro h2 {
+        margin-bottom: 25px;
+
+        font-size: clamp(28px, 8vw, 38px);
+        line-height: 1.08;
+
+        letter-spacing: -0.8px;
+    }
+
+    .team-intro h2::after {
+        width: 55px;
+        height: 3px;
+
+        margin-top: 18px;
+    }
+
+    .team-intro p {
+        margin-bottom: 18px;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .team-intro .green-button {
+        width: 100%;
+        min-width: 0;
+
+        margin-top: 10px;
+
+        padding: 14px 20px;
+    }
+
+    .team-intro::after {
+        width: 220px;
+        height: 220px;
+
+        right: -140px;
+        top: -100px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .team-intro {
+        width: 92%;
+        padding: 45px 20px 50px;
+    }
+
+    .team-intro h2 {
+        font-size: 27px;
+    }
+
+    .team-intro p {
+        font-size: 14px;
+    }
+
+    .team-intro .section-kicker {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .team-intro,
+    .team-intro .green-button,
+    .team-intro .green-button::after {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   ACHIEVEMENTS 2.9
+   НАШІ ДОСЯГНЕННЯ — PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+section:has(.achievements) {
+    position: relative;
+    width: 100%;
+    padding: 90px 0 100px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f6faf7 100%
+        );
+
+    overflow: hidden;
+}
+
+/* Декоративний футбольний патерн */
+
+section:has(.achievements)::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 380px;
+    height: 380px;
+
+    border: 1px solid rgba(37,184,75,0.10);
+    border-radius: 50%;
+
+    transform: translate(42%, -42%);
+
+    box-shadow:
+        0 0 0 35px rgba(37,184,75,0.025),
+        0 0 0 70px rgba(37,184,75,0.018);
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+section:has(.achievements) > h2 {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, 92%);
+
+    margin: 0 auto 45px;
+
+    color: #102219;
+
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.1;
+
+    font-weight: 950;
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+section:has(.achievements) > h2::after {
+    content: "";
+
+    display: block;
+
+    width: 65px;
+    height: 4px;
+
+    margin: 18px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #168f3a,
+            #35c759
+        );
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS GRID
+   ========================================================= */
+
+.achievements {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENT CARD
+   ========================================================= */
+
+.achievement {
+    position: relative;
+
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(20,40,28,0.09);
+    border-bottom: 4px solid #25b84b;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.08),
+        0 2px 8px rgba(0,0,0,0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Верхня зелена лінія */
+
+.achievement::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #168f3a,
+            #35c759
+        );
+
+    transition: width 0.4s ease;
+}
+
+
+/* Декоративне коло */
+
+.achievement::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -80px;
+    bottom: -80px;
+
+    border: 1px solid rgba(37,184,75,0.12);
+    border-radius: 50%;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Hover */
+
+.achievement:hover {
+    transform: translateY(-9px);
+
+    border-bottom-color: #35c759;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,0.13),
+        0 8px 22px rgba(37,184,75,0.12);
+}
+
+.achievement:hover::before {
+    width: 100%;
+}
+
+.achievement:hover::after {
+    transform: scale(1.4);
+
+    border-color: rgba(37,184,75,0.22);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.achievement-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b3d1d,
+            #168f3a
+        );
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 34px;
+
+    box-shadow:
+        0 10px 25px rgba(11,61,29,0.22);
+}
+
+.achievement-icon::before {
+    content: "🏆";
+
+    font-size: 32px;
+
+    filter:
+        drop-shadow(0 3px 5px rgba(0,0,0,0.25));
+}
+
+
+/* Другі та треті картки */
+
+.achievement:nth-child(2) .achievement-icon::before {
+    content: "🥈";
+}
+
+.achievement:nth-child(3) .achievement-icon::before {
+    content: "🏅";
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.achievement h3 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 270px;
+
+    margin: 0 0 13px;
+
+    color: #173b23;
+
+    font-size: 18px;
+    line-height: 1.35;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.achievement p {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: #25a947;
+
+    font-size: 25px;
+    line-height: 1;
+
+    font-weight: 950;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   NUMBER ACCENT
+   ========================================================= */
+
+.achievement p::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 8px;
+
+    vertical-align: middle;
+
+    background: #25b84b;
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    section:has(.achievements) {
+        padding: 70px 0 80px;
+    }
+
+    .achievements {
+        width: 88%;
+        gap: 15px;
+    }
+
+    .achievement {
+        min-height: 245px;
+        padding: 30px 18px;
+    }
+
+    .achievement-icon {
+        width: 70px;
+        height: 70px;
+
+        margin-bottom: 18px;
+    }
+
+    .achievement-icon::before {
+        font-size: 29px;
+    }
+
+    .achievement h3 {
+        font-size: 16px;
+    }
+
+    .achievement p {
+        font-size: 23px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    section:has(.achievements) {
+        padding: 55px 0 65px;
+    }
+
+    section:has(.achievements) > h2 {
+        width: 88%;
+        margin-bottom: 32px;
+
+        font-size: 29px;
+    }
+
+    .achievements {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .achievement {
+        min-height: 210px;
+
+        padding: 28px 20px;
+    }
+
+    .achievement-icon {
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 16px;
+    }
+
+    .achievement-icon::before {
+        font-size: 27px;
+    }
+
+    .achievement h3 {
+        max-width: 100%;
+
+        font-size: 16px;
+    }
+
+    .achievement p {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    section:has(.achievements) > h2 {
+        font-size: 26px;
+    }
+
+    .achievement {
+        min-height: 195px;
+    }
+
+    .achievement-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .achievement-icon::before {
+        font-size: 25px;
+    }
+
+    .achievement h3 {
+        font-size: 15px;
+    }
+
+    .achievement p {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .achievement {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   NEWS 3.0
+   ТУРНІРИ ТА НОВИНИ — PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+.news-section-head {
+    position: relative;
+    /*width: min(1180px, 92%);*/
+    margin: 0 auto 42px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Заголовок */
+
+.news-section-head .section-kicker {
+    position: relative;
+
+    margin-bottom: 14px;
+    padding-left: 15px;
+
+    color: #168f3a;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.news-section-head .section-kicker::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    transform: translateY(-50%);
+
+    background: #25b84b;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(37,184,75,0.12);
+}
+
+.news-section-head h2 {
+    margin: 0;
+
+    color: #102219;
+
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
+
+    font-weight: 950;
+    letter-spacing: -1.2px;
+}
+
+.news-head-line {
+    position: relative;
+
+    display: block;
+
+    width: 42%;
+    height: 1px;
+
+    margin-bottom: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,184,75,0),
+            rgba(37,184,75,0.65)
+        );
+}
+
+.news-head-line::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    transform: translateY(-50%);
+
+    background: #25b84b;
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   NEWS GRID
+   ========================================================= */
+
+.news {
+    position: relative;
+
+    /*width: min(1180px, 92%);*/
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   NEWS CARD
+   ========================================================= */
+
+.news-card {
+    position: relative;
+
+    min-height: 290px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 28px 28px;
+
+    color: #26352c;
+    background: #ffffff;
+
+    border: 1px solid rgba(20,40,28,0.09);
+    border-bottom: 4px solid #25b84b;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.07),
+        0 2px 8px rgba(0,0,0,0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+
+/* Верхня лінія */
+
+.news-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #168f3a,
+            #35c759
+        );
+
+    transition: width 0.45s ease;
+}
+
+
+/* Декоративне коло */
+
+.news-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -85px;
+    bottom: -85px;
+
+    border: 1px solid rgba(37,184,75,0.11);
+    border-radius: 50%;
+
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease;
+}
+
+
+/* Hover */
+
+.news-card:hover {
+    color: #26352c;
+
+    transform: translateY(-9px);
+
+    border-bottom-color: #35c759;
+
+    box-shadow:
+        0 22px 50px rgba(0,0,0,0.13),
+        0 8px 22px rgba(37,184,75,0.10);
+}
+
+.news-card:hover::before {
+    width: 100%;
+}
+
+.news-card:hover::after {
+    transform: scale(1.45);
+
+    border-color: rgba(37,184,75,0.22);
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.news-date {
+    position: relative;
+    z-index: 2;
+
+    align-self: flex-start;
+
+    margin-bottom: 25px;
+    padding: 7px 12px;
+
+    color: #168f3a;
+
+    background: #edf8f0;
+
+    border-left: 3px solid #25b84b;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   NEWS TITLE
+   ========================================================= */
+
+.news-card h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 15px;
+
+    color: #173b23;
+
+    font-size: 21px;
+    line-height: 1.25;
+
+    font-weight: 950;
+    letter-spacing: -0.3px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.news-card:hover h3 {
+    color: #168f3a;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   NEWS TEXT
+   ========================================================= */
+
+.news-card p {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: #5b6860;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BOTTOM ARROW
+   Додається CSS — HTML змінювати не потрібно
+   ========================================================= */
+
+.news-card h3::after {
+    content: "→";
+
+    display: inline-block;
+
+    margin-left: 9px;
+
+    color: #25b84b;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    opacity: 0;
+
+    transform: translateX(-8px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.news-card:hover h3::after {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   РІЗНІ АКЦЕНТИ КАРТОК
+   ========================================================= */
+
+.news-card:nth-child(1) {
+    border-bottom-color: #25b84b;
+}
+
+.news-card:nth-child(2) {
+    border-bottom-color: #168f3a;
+}
+
+.news-card:nth-child(3) {
+    border-bottom-color: #35c759;
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+   Працює з існуючими:
+   .scroll-animate
+   .animate-bottom
+   .animate-left
+   .animate-right
+   ========================================================= */
+
+.news-card.scroll-animate {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .news-section-head {
+        width: 88%;
+        margin-bottom: 32px;
+    }
+
+    .news {
+        width: 88%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .news-card {
+        min-height: 275px;
+
+        padding: 27px 23px 25px;
+    }
+
+    .news-card h3 {
+        font-size: 19px;
+    }
+
+    .news-card p {
+        font-size: 14px;
+    }
+
+    .news-head-line {
+        width: 28%;
+    }
+
+    .news-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 7.5px);
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .news-section-head {
+        width: 88%;
+
+        margin-bottom: 28px;
+
+        display: block;
+    }
+
+    .news-section-head .section-kicker {
+        margin-bottom: 12px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .news-section-head h2 {
+        font-size: 30px;
+        line-height: 1.1;
+    }
+
+    .news-head-line {
+        width: 70px;
+        height: 3px;
+
+        margin-top: 18px;
+        margin-bottom: 0;
+
+        background: #25b84b;
+    }
+
+    .news-head-line::after {
+        display: none;
+    }
+
+    .news {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .news-card {
+        min-height: 0;
+
+        padding: 25px 22px 27px;
+    }
+
+    .news-card:nth-child(3) {
+        grid-column: auto;
+
+        max-width: none;
+        width: auto;
+    }
+
+    .news-date {
+        margin-bottom: 20px;
+
+        font-size: 9px;
+        padding: 6px 10px;
+    }
+
+    .news-card h3 {
+        margin-bottom: 12px;
+
+        font-size: 19px;
+    }
+
+    .news-card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .news-section-head h2 {
+        font-size: 27px;
+    }
+
+    .news {
+        width: 92%;
+    }
+
+    .news-card {
+        padding: 22px 18px 24px;
+    }
+
+    .news-card h3 {
+        font-size: 18px;
+    }
+
+    .news-card p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .news-card,
+    .news-card h3,
+    .news-card h3::after,
+    .news-card::before,
+    .news-card::after {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   POLISSYA KIDS 16L U-10
+   FINAL POLISH 3.2
+   ЗАГАЛЬНЕ ОБ'ЄДНАННЯ ДИЗАЙНУ
+   ========================================================= */
+
+/* =========================================================
+   1. БАЗОВА ГЕОМЕТРІЯ
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: #ffffff;
+    color: #26352c;
+}
+
+
+/* =========================================================
+   2. ЄДИНА ТИПОГРАФІКА
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+
+/* =========================================================
+   3. ЗАГАЛЬНИЙ ЗЕЛЕНИЙ АКЦЕНТ
+   ========================================================= */
+
+a {
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(37,184,75,0.45);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   4. ЄДИНА СИСТЕМА СЕКЦІЙ
+   ========================================================= */
+
+section {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   5. ПЛАВНИЙ ПЕРЕХІД МІЖ БЛОКАМИ
+   ========================================================= */
+
+.stats-modern,
+.next-match-modern,
+#block-4,
+.team-intro,
+section:has(.achievements) {
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   6. ЗЕЛЕНІ АКЦЕНТИ МІЖ СЕКЦІЯМИ
+   ========================================================= */
+
+#block-4::after,
+.team-intro::after {
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   7. SCROLL ANIMATION
+   ПІДСИЛЮЄМО ВЖЕ ІСНУЮЧУ АНІМАЦІЮ
+   ========================================================= */
+
+.scroll-animate {
+    will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   8. КАРТКИ — ЄДИНА ЛОГІКА HOVER
+   ========================================================= */
+
+.stat-modern,
+.achievement,
+.news-card {
+    will-change: transform;
+}
+
+
+/* =========================================================
+   9. ЗОБРАЖЕННЯ
+   ========================================================= */
+
+img {
+    max-width: 100%;
+}
+
+img,
+.news-card,
+.achievement,
+.stat-modern {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   10. ПОСИЛАННЯ-КАРТКИ
+   ========================================================= */
+
+.news-card {
+    cursor: pointer;
+}
+
+.news-card:focus-visible {
+    outline: 3px solid rgba(37,184,75,0.45);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   11. ЗАГАЛЬНА ФІНАЛЬНА ЛІНІЯ
+   ========================================================= */
+
+.team-intro,
+section:has(.achievements) {
+    position: relative;
+}
+
+
+/* =========================================================
+   12. МОБІЛЬНИЙ РЕЖИМ
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    p {
+        text-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   13. ДУЖЕ МАЛІ ЕКРАНИ
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    body {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   14. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================================
+   FOOTER 3.3
+   POLISSYA KIDS 16L U-10
+   PROFESSIONAL FOOTBALL STYLE
+   ========================================================= */
+
+footer {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 55px 20px 28px;
+
+    box-sizing: border-box;
+
+    color: rgba(255,255,255,0.72);
+
+    background:
+        linear-gradient(
+            135deg,
+            #06110a 0%,
+            #0a1d11 50%,
+            #07140d 100%
+        );
+
+    border-top: 4px solid #25b84b;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ДЕКОРАТИВНА СІТКА
+   ========================================================= */
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   ДЕКОРАТИВНЕ КОЛО
+   ========================================================= */
+
+footer::after {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    right: -150px;
+    top: -190px;
+
+    border: 1px solid rgba(53,199,89,0.13);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 35px rgba(53,199,89,0.025),
+        0 0 0 70px rgba(53,199,89,0.018);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ВСІ ЕЛЕМЕНТИ ФУТЕРА
+   ========================================================= */
+
+footer > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   ТЕКСТ
+   ========================================================= */
+
+footer p {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    color: rgba(255,255,255,0.68);
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ПОСИЛАННЯ
+   ========================================================= */
+
+footer a {
+    color: #35c759;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ЗЕЛЕНИЙ АКЦЕНТ У ТЕКСТІ
+   ========================================================= */
+
+footer strong {
+    color: #35c759;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   ДОДАТКОВА ВІЗУАЛЬНА ЛІНІЯ
+   ========================================================= */
+
+footer p::before {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 0 auto 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #168f3a,
+            #35c759
+        );
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    footer {
+        padding: 45px 18px 25px;
+    }
+
+    footer p {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    footer::after {
+        width: 230px;
+        height: 230px;
+
+        right: -120px;
+        top: -130px;
+    }
+
+    footer::before {
+        background-size: 40px 40px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    footer {
+        padding: 40px 15px 22px;
+    }
+
+    footer p {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    footer,
+    footer a {
+        transition: none !important;
+    }
+}
+/* ================================================================
+   POLISSYA KIDS 16L U-10 — CSS 3.4
+   MOBILE MATCHDAY
+   Адаптація шапки та меню для смартфонів
+   ================================================================ */
+
+
+/* ------------------------------------------------
+   1. HEADER TOP — БАЗОВА СТРУКТУРА
+   ------------------------------------------------ */
+
+.header-top {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------
+   2. MOBILE HEADER
+   ------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+    header {
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .header-top {
+        width: 100%;
+        padding: 14px 15px 12px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+
+    /* ЛОГО + НАЗВА */
+
+    .header-brand {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        box-sizing: border-box;
+    }
+
+    .header-logo {
+        width: 62px;
+        height: 62px;
+        flex: 0 0 62px;
+        object-fit: contain;
+    }
+
+    .header-brand-text {
+        min-width: 0;
+        text-align: left;
+    }
+
+    .header-brand-text h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.05;
+        white-space: nowrap;
+    }
+
+    .header-brand-text p {
+        margin: 5px 0 0;
+        font-size: 10px;
+        line-height: 1.25;
+        max-width: 210px;
+    }
+
+
+    /* СОЦМЕРЕЖІ */
+
+    .header-social-top {
+        width: 100%;
+        justify-content: center;
+        padding: 6px 0 2px;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+    .header-social-top a {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+        font-size: 14px;
+    }
+
+
+    /* ------------------------------------------------
+       3. МОБІЛЬНЕ МЕНЮ
+       ------------------------------------------------ */
+
+    nav {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+
+        gap: 5px;
+        padding: 8px 10px;
+
+        overflow: visible;
+    }
+
+    nav > a,
+    nav .dropdown {
+        box-sizing: border-box;
+    }
+
+    nav > a,
+    nav .dropdown-button {
+        min-height: 40px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 8px 11px;
+
+        font-size: 13px;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+
+    /* Випадаючі блоки */
+
+    nav .dropdown {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+    }
+
+    nav .dropdown-button {
+        width: 100%;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    nav .dropdown-menu {
+        z-index: 9999;
+    }
+
+
+    /* ------------------------------------------------
+       4. НЕ ДАЄМО ПУНКТАМ МЕНЮ "ЇХАТИ"
+       ------------------------------------------------ */
+
+    nav > a {
+        flex: 0 0 auto;
+    }
+
+    nav .dropdown {
+        flex: 0 0 auto;
+    }
+
+
+    /* ------------------------------------------------
+       5. ВИПАДАЮЧЕ МЕНЮ НА ТЕЛЕФОНІ
+       ------------------------------------------------ */
+
+    nav .dropdown-menu {
+        min-width: 170px;
+        max-width: calc(100vw - 30px);
+
+        box-sizing: border-box;
+    }
+
+    nav .dropdown-menu a {
+        display: block;
+        box-sizing: border-box;
+
+        padding: 11px 14px;
+
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+
+    /* ------------------------------------------------
+       6. КОНТЕНТ НЕ ПОВИНЕН ВИХОДИТИ ЗА ЕКРАН
+       ------------------------------------------------ */
+
+    main,
+    section,
+    .hero,
+    .stats-modern,
+    .next-match-modern,
+    .team-intro,
+    .news,
+    .achievements {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ------------------------------------------------
+   7. МАЛЕНЬКІ ТЕЛЕФОНИ
+   ------------------------------------------------ */
+
+@media (max-width: 480px) {
+
+    .header-top {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .header-logo {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+    }
+
+    .header-brand {
+        gap: 9px;
+    }
+
+    .header-brand-text h1 {
+        font-size: 19px;
+    }
+
+    .header-brand-text p {
+        font-size: 9px;
+        max-width: 190px;
+    }
+
+    nav {
+        gap: 4px;
+        padding: 7px 6px;
+    }
+
+    nav > a,
+    nav .dropdown-button {
+        min-height: 38px;
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    nav .dropdown-menu {
+        min-width: 155px;
+    }
+}
+
+
+/* ------------------------------------------------
+   8. ДУЖЕ МАЛЕНЬКІ ЕКРАНИ
+   ------------------------------------------------ */
+
+@media (max-width: 380px) {
+
+    .header-logo {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    .header-brand-text h1 {
+        font-size: 17px;
+    }
+
+    .header-brand-text p {
+        font-size: 8px;
+        max-width: 175px;
+    }
+
+    .header-social-top a {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+        font-size: 13px;
+    }
+
+    nav > a,
+    nav .dropdown-button {
+        padding: 7px 7px;
+        font-size: 11px;
+    }
+}
+
+
+/* ------------------------------------------------
+   9. БЕЗПЕЧНА ОБРОБКА ПОСИЛАНЬ НА ТЕЛЕФОНІ
+   ------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+    nav a,
+    nav button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    nav .dropdown-menu a {
+        min-height: 40px;
+    }
+
+}
+
+
+/* ------------------------------------------------
+   10. REDUCED MOTION
+   ------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .header-logo,
+    nav a,
+    nav button,
+    .header-social-top a {
+        transition: none !important;
+    }
+
+}
+
+
+
