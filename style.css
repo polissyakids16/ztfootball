@@ -4737,17 +4737,17 @@ section:has(.achievements) > h2::after {
 
     filter:
         drop-shadow(0 3px 5px rgba(0,0,0,0.25));
-}*/
+}
 
 
 /* Другі та треті картки */
 
 /*.achievement:nth-child(2) .achievement-icon::before {
-    content: "🥈";
+    content: "";
 }
 
 .achievement:nth-child(3) .achievement-icon::before {
-    content: "🏅";
+    content: "";
 }*/
 
 
@@ -6839,6 +6839,272 @@ footer p::before {
 
     .upcoming-match-card .match-score.played {
         font-size: 22px;
+    }
+}
+
+/* ================================================================
+   SEO БЛОК — POLISSYA KIDS 16L
+================================================================ */
+
+.seo-team-description {
+    position: relative;
+    width: 100%;
+    padding: 90px 0 100px;
+    box-sizing: border-box;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.seo-team-description::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        #0b3d1d,
+        #25b84b,
+        #168f3a
+    );
+}
+
+.seo-team-description-inner {
+    position: relative;
+    width: min(1000px, 90%);
+    margin: 0 auto;
+}
+
+.seo-team-description .section-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #168f3a;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.seo-team-description h2 {
+    margin: 0 0 30px;
+    color: #102219;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.12;
+    font-weight: 950;
+}
+
+.seo-team-description h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin-top: 18px;
+    background: #25b84b;
+}
+
+.seo-team-description h3 {
+    margin: 42px 0 16px;
+    color: #102219;
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+.seo-team-description p {
+    margin: 0 0 18px;
+    color: #526159;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.seo-team-description p strong {
+    color: #173c25;
+    font-weight: 900;
+}
+
+
+/* ------------------------------------------------
+   SEO HIGHLIGHT
+------------------------------------------------ */
+
+.seo-highlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 38px 0 45px;
+}
+
+.seo-highlight > div {
+    padding: 22px 18px;
+    box-sizing: border-box;
+
+    background: #f4f8f5;
+
+    border-left: 4px solid #25b84b;
+    border-radius: 4px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.seo-highlight > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(0,0,0,.10);
+}
+
+.seo-highlight strong {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #102219;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.seo-highlight span {
+    color: #6a766f;
+    font-size: 13px;
+}
+
+
+/* ------------------------------------------------
+   НИЖНІЙ СЛОГАН
+------------------------------------------------ */
+
+.seo-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07140d,
+            #0b3d1d
+        );
+
+    border-top: 3px solid #25b84b;
+    border-bottom: 3px solid #25b84b;
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.12);
+}
+
+.seo-bottom strong {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 950;
+}
+
+.seo-bottom span {
+    margin-top: 8px;
+    color: rgba(255,255,255,.68);
+    font-size: 13px;
+}
+
+
+/* ------------------------------------------------
+   МОБІЛЬНА ВЕРСІЯ
+------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+    .seo-team-description {
+        padding: 60px 0 70px;
+    }
+
+    .seo-team-description-inner {
+        width: 92%;
+    }
+
+    .seo-team-description .section-kicker {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .seo-team-description h2 {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+
+    .seo-team-description h3 {
+        margin-top: 35px;
+        font-size: 23px;
+    }
+
+    .seo-team-description p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .seo-highlight {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 30px 0 35px;
+    }
+
+    .seo-highlight > div {
+        padding: 18px 16px;
+    }
+
+    .seo-bottom {
+        margin-top: 35px;
+        padding: 25px 15px;
+    }
+
+    .seo-bottom strong {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .seo-team-description {
+        padding: 50px 0 60px;
+    }
+
+    .seo-team-description-inner {
+        width: 94%;
+    }
+
+    .seo-team-description h2 {
+        font-size: 27px;
+    }
+
+    .seo-team-description h3 {
+        font-size: 21px;
+    }
+
+    .seo-team-description p {
+        font-size: 13px;
+    }
+
+    .seo-bottom strong {
+        font-size: 18px;
+    }
+}
+
+
+/* ------------------------------------------------
+   REDUCED MOTION
+------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .seo-highlight > div {
+        transition: none !important;
+    }
+
+    .seo-highlight > div:hover {
+        transform: none !important;
     }
 }
 
