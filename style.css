@@ -1,5 +1,5 @@
 /* ================================================================
-   POLISSYA KIDS 16L U-10 — CSS 2.2
+   POLISSYA KIDS 16L U-10 — CSS 2.2ges/
    Сучасний професійний футбольний стиль
    Збережено сумісність з існуючими HTML/JS класами
    ================================================================ */
@@ -1150,11 +1150,11 @@ article { padding:16px 20px; margin-top:15px; background:var(--surface); border-
 /* Положення кожного фото */
 
 .hero-slide:nth-child(1) {
-    background-position: center 10%;
+    background-position: center 60%;
 }
 
 .hero-slide:nth-child(2) {
-    background-position: center 70%;
+    background-position: center 1%;
 }
 
 .hero-slide:nth-child(3) {
